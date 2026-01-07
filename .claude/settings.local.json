@@ -48,7 +48,8 @@
       "WebFetch(domain:softwarepros.org)",
       "WebFetch(domain:developers.google.com)",
       "Read(//Users/softwareprosorg/Downloads/Asteru - Agency Landing Page/**)",
-      "Bash(find \"/Users/softwareprosorg/Downloads/Asteru - Agency Landing Page\" -type f ( -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.jpeg\" -o -name \"*.gif\" -o -name \"*.webp\" -o -name \"*.svg\" ))"
+      "Bash(find \"/Users/softwareprosorg/Downloads/Asteru - Agency Landing Page\" -type f ( -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.jpeg\" -o -name \"*.gif\" -o -name \"*.webp\" -o -name \"*.svg\" ))",
+      "Bash(gh auth status:*)"
     ],
     "deny": [],
     "ask": []
