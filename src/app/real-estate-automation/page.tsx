@@ -42,8 +42,7 @@ const automationTypes: AutomationType[] = [
   {
     icon: AutoMode,
     title: "Instant Lead Response",
-    description:
-      "Respond to leads within seconds, not hours. Be the first agent they hear from.",
+    description: "Respond to leads within seconds, not hours. Be the first agent they hear from.",
     automations: [
       "Instant text message",
       "Personalized email",
@@ -56,18 +55,12 @@ const automationTypes: AutomationType[] = [
     title: "Email Drip Campaigns",
     description:
       "Nurture leads over time with automated email sequences tailored to their interests.",
-    automations: [
-      "Welcome sequences",
-      "Property alerts",
-      "Market updates",
-      "Anniversary emails",
-    ],
+    automations: ["Welcome sequences", "Property alerts", "Market updates", "Anniversary emails"],
   },
   {
     icon: Sms,
     title: "SMS Follow-Up Sequences",
-    description:
-      "Text message automation that feels personal and gets responses.",
+    description: "Text message automation that feels personal and gets responses.",
     automations: [
       "Appointment reminders",
       "Showing confirmations",
@@ -78,8 +71,7 @@ const automationTypes: AutomationType[] = [
   {
     icon: Schedule,
     title: "Appointment Automation",
-    description:
-      "Automated scheduling, reminders, and follow-ups for showings and meetings.",
+    description: "Automated scheduling, reminders, and follow-ups for showings and meetings.",
     automations: [
       "Calendar booking",
       "Reminder sequences",
@@ -90,8 +82,7 @@ const automationTypes: AutomationType[] = [
   {
     icon: NotificationsActive,
     title: "Alert Systems",
-    description:
-      "Keep leads engaged with automated alerts about new listings and price changes.",
+    description: "Keep leads engaged with automated alerts about new listings and price changes.",
     automations: [
       "New listing alerts",
       "Price reduction alerts",
@@ -102,8 +93,7 @@ const automationTypes: AutomationType[] = [
   {
     icon: TrendingUp,
     title: "Pipeline Automation",
-    description:
-      "Automate your entire sales pipeline from lead to close.",
+    description: "Automate your entire sales pipeline from lead to close.",
     automations: [
       "Stage progression",
       "Task creation",
@@ -121,12 +111,10 @@ export default function RealEstateAutomationPage(): JSX.Element {
           <div className="flex justify-center mb-6">
             <AutoMode className="w-16 h-16 text-cyan-400" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Real Estate Automation
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Real Estate Automation</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Automate your lead follow-ups, nurture campaigns, and workflows so you can
-            focus on closing deals instead of chasing leads.
+            Automate your lead follow-ups, nurture campaigns, and workflows so you can focus on
+            closing deals instead of chasing leads.
           </p>
           <Link
             href="/contact"
@@ -139,27 +127,19 @@ export default function RealEstateAutomationPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Speed Wins in Real Estate
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Speed Wins in Real Estate</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-cyan-400 mb-2">391%</div>
-              <p className="text-gray-400">
-                higher conversion when responding within 1 minute
-              </p>
+              <p className="text-gray-400">higher conversion when responding within 1 minute</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-cyan-400 mb-2">8x</div>
-              <p className="text-gray-400">
-                more likely to close when you follow up 6+ times
-              </p>
+              <p className="text-gray-400">more likely to close when you follow up 6+ times</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-cyan-400 mb-2">50%</div>
-              <p className="text-gray-400">
-                of leads go with the first agent who responds
-              </p>
+              <p className="text-gray-400">of leads go with the first agent who responds</p>
             </div>
           </div>
         </div>
@@ -167,12 +147,10 @@ export default function RealEstateAutomationPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            What We Automate
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-4">What We Automate</h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
-            Every touchpoint in your real estate workflow can be automated while
-            maintaining a personal feel.
+            Every touchpoint in your real estate workflow can be automated while maintaining a
+            personal feel.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {automationTypes.map((automation) => {
@@ -189,10 +167,7 @@ export default function RealEstateAutomationPage(): JSX.Element {
                   <p className="text-gray-400 mb-4">{automation.description}</p>
                   <ul className="space-y-2">
                     {automation.automations.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-center text-sm text-gray-300"
-                      >
+                      <li key={item} className="flex items-center text-sm text-gray-300">
                         <div className="w-2 h-2 bg-cyan-400 rounded-full mr-3" />
                         {item}
                       </li>
@@ -207,12 +182,9 @@ export default function RealEstateAutomationPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Automate Your Real Estate Business?
-          </h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Automate Your Real Estate Business?</h2>
           <p className="text-gray-400 mb-8">
-            Get a free consultation and see how automation can help you convert more
-            leads.
+            Get a free consultation and see how automation can help you convert more leads.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

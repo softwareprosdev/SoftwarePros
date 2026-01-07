@@ -1,11 +1,4 @@
-import {
-  Build,
-  Loop,
-  RocketLaunch,
-  Speed,
-  Verified,
-  BarChart,
-} from "@mui/icons-material";
+import { BarChart, Build, Loop, RocketLaunch, Speed, Verified } from "@mui/icons-material";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { JSX } from "react";
@@ -54,8 +47,7 @@ const mvpPhases: MVPPhase[] = [
   {
     icon: Build,
     title: "Rapid Development",
-    description:
-      "Build your MVP fast using proven technologies and agile development practices.",
+    description: "Build your MVP fast using proven technologies and agile development practices.",
     deliverables: [
       "Core features",
       "User authentication",
@@ -66,8 +58,7 @@ const mvpPhases: MVPPhase[] = [
   {
     icon: Speed,
     title: "Launch & Learn",
-    description:
-      "Deploy your MVP to real users and start collecting feedback and usage data.",
+    description: "Deploy your MVP to real users and start collecting feedback and usage data.",
     deliverables: [
       "Production deployment",
       "User onboarding",
@@ -78,8 +69,7 @@ const mvpPhases: MVPPhase[] = [
   {
     icon: Loop,
     title: "Iterate & Improve",
-    description:
-      "Use real user data to prioritize features and continuously improve your product.",
+    description: "Use real user data to prioritize features and continuously improve your product.",
     deliverables: [
       "Feature iterations",
       "Performance optimization",
@@ -90,8 +80,7 @@ const mvpPhases: MVPPhase[] = [
   {
     icon: Verified,
     title: "Validation & Scale",
-    description:
-      "Validate product-market fit and prepare for scaling to more users.",
+    description: "Validate product-market fit and prepare for scaling to more users.",
     deliverables: [
       "Conversion metrics",
       "Retention analysis",
@@ -102,8 +91,7 @@ const mvpPhases: MVPPhase[] = [
   {
     icon: BarChart,
     title: "Growth Features",
-    description:
-      "Add features that drive growth, engagement, and monetization.",
+    description: "Add features that drive growth, engagement, and monetization.",
     deliverables: [
       "Referral systems",
       "Premium features",
@@ -121,12 +109,10 @@ export default function MVPDevelopmentPage(): JSX.Element {
           <div className="flex justify-center mb-6">
             <RocketLaunch className="w-16 h-16 text-pink-400" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            MVP Development
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">MVP Development</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Launch your product in weeks, not months. We help startups validate
-            ideas fast with minimum viable products that real users love.
+            Launch your product in weeks, not months. We help startups validate ideas fast with
+            minimum viable products that real users love.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -147,27 +133,19 @@ export default function MVPDevelopmentPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Why Start with an MVP?
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Why Start with an MVP?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-pink-400 mb-2">42%</div>
-              <p className="text-gray-400">
-                of startups fail due to no market need
-              </p>
+              <p className="text-gray-400">of startups fail due to no market need</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-pink-400 mb-2">10x</div>
-              <p className="text-gray-400">
-                cheaper to iterate on an MVP than a full product
-              </p>
+              <p className="text-gray-400">cheaper to iterate on an MVP than a full product</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-pink-400 mb-2">70%</div>
-              <p className="text-gray-400">
-                faster time to market with MVP approach
-              </p>
+              <p className="text-gray-400">faster time to market with MVP approach</p>
             </div>
           </div>
         </div>
@@ -175,9 +153,7 @@ export default function MVPDevelopmentPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            Our MVP Development Process
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Our MVP Development Process</h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
             A proven approach to building products that users want.
           </p>
@@ -196,10 +172,7 @@ export default function MVPDevelopmentPage(): JSX.Element {
                   <p className="text-gray-400 mb-4">{phase.description}</p>
                   <ul className="space-y-2">
                     {phase.deliverables.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-center text-sm text-gray-300"
-                      >
+                      <li key={item} className="flex items-center text-sm text-gray-300">
                         <div className="w-2 h-2 bg-pink-400 rounded-full mr-3" />
                         {item}
                       </li>
@@ -214,9 +187,7 @@ export default function MVPDevelopmentPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Have an Idea? Let's Validate It.
-          </h2>
+          <h2 className="text-3xl font-bold mb-6">Have an Idea? Let's Validate It.</h2>
           <p className="text-gray-400 mb-8">
             Get a free consultation to discuss your product idea and MVP strategy.
           </p>

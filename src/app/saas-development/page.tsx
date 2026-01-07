@@ -1,11 +1,4 @@
-import {
-  Cloud,
-  CreditCard,
-  People,
-  Security,
-  Speed,
-  TrendingUp,
-} from "@mui/icons-material";
+import { Cloud, CreditCard, People, Security, Speed, TrendingUp } from "@mui/icons-material";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { JSX } from "react";
@@ -26,7 +19,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "SaaS Development Company | SoftwarePros",
-    description: "Build your SaaS product with a team that understands subscription business models.",
+    description:
+      "Build your SaaS product with a team that understands subscription business models.",
     url: "https://softwarepros.org/saas-development",
   },
 };
@@ -42,8 +36,7 @@ const saasFeatures: SaaSFeature[] = [
   {
     icon: People,
     title: "Multi-Tenant Architecture",
-    description:
-      "Scalable architecture that serves multiple customers from a single codebase.",
+    description: "Scalable architecture that serves multiple customers from a single codebase.",
     includes: [
       "Tenant isolation",
       "Shared infrastructure",
@@ -54,8 +47,7 @@ const saasFeatures: SaaSFeature[] = [
   {
     icon: CreditCard,
     title: "Subscription Billing",
-    description:
-      "Complete billing system with plans, trials, upgrades, and payment processing.",
+    description: "Complete billing system with plans, trials, upgrades, and payment processing.",
     includes: [
       "Stripe/PayPal integration",
       "Multiple pricing tiers",
@@ -66,8 +58,7 @@ const saasFeatures: SaaSFeature[] = [
   {
     icon: Security,
     title: "Authentication & Security",
-    description:
-      "Enterprise-grade security with SSO, 2FA, and role-based access control.",
+    description: "Enterprise-grade security with SSO, 2FA, and role-based access control.",
     includes: [
       "OAuth/SSO integration",
       "Two-factor auth",
@@ -78,38 +69,20 @@ const saasFeatures: SaaSFeature[] = [
   {
     icon: TrendingUp,
     title: "Analytics & Metrics",
-    description:
-      "Built-in analytics to track user engagement, churn, and revenue metrics.",
-    includes: [
-      "User activity tracking",
-      "Churn prediction",
-      "Revenue dashboards",
-      "Feature usage",
-    ],
+    description: "Built-in analytics to track user engagement, churn, and revenue metrics.",
+    includes: ["User activity tracking", "Churn prediction", "Revenue dashboards", "Feature usage"],
   },
   {
     icon: Cloud,
     title: "Cloud Infrastructure",
-    description:
-      "Scalable cloud deployment that grows with your user base.",
-    includes: [
-      "Auto-scaling",
-      "Global CDN",
-      "99.9% uptime SLA",
-      "Disaster recovery",
-    ],
+    description: "Scalable cloud deployment that grows with your user base.",
+    includes: ["Auto-scaling", "Global CDN", "99.9% uptime SLA", "Disaster recovery"],
   },
   {
     icon: Speed,
     title: "Performance & Speed",
-    description:
-      "Optimized for fast load times and smooth user experience at scale.",
-    includes: [
-      "Edge caching",
-      "Database optimization",
-      "Lazy loading",
-      "Real-time updates",
-    ],
+    description: "Optimized for fast load times and smooth user experience at scale.",
+    includes: ["Edge caching", "Database optimization", "Lazy loading", "Real-time updates"],
   },
 ];
 
@@ -121,12 +94,10 @@ export default function SaaSDevelopmentPage(): JSX.Element {
           <div className="flex justify-center mb-6">
             <Cloud className="w-16 h-16 text-indigo-400" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            SaaS Development
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">SaaS Development</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Launch your software product faster. We build SaaS platforms with
-            subscription billing, multi-tenancy, and everything you need to scale.
+            Launch your software product faster. We build SaaS platforms with subscription billing,
+            multi-tenancy, and everything you need to scale.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -147,27 +118,19 @@ export default function SaaSDevelopmentPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            SaaS by the Numbers
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-12">SaaS by the Numbers</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-indigo-400 mb-2">$195B</div>
-              <p className="text-gray-400">
-                Global SaaS market size in 2025
-              </p>
+              <p className="text-gray-400">Global SaaS market size in 2025</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-indigo-400 mb-2">18%</div>
-              <p className="text-gray-400">
-                Annual growth rate of SaaS industry
-              </p>
+              <p className="text-gray-400">Annual growth rate of SaaS industry</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-indigo-400 mb-2">85%</div>
-              <p className="text-gray-400">
-                of businesses use SaaS applications
-              </p>
+              <p className="text-gray-400">of businesses use SaaS applications</p>
             </div>
           </div>
         </div>
@@ -175,12 +138,9 @@ export default function SaaSDevelopmentPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            What We Build Into Every SaaS
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-4">What We Build Into Every SaaS</h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
-            Essential features that every successful SaaS needs, built right from
-            the start.
+            Essential features that every successful SaaS needs, built right from the start.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {saasFeatures.map((feature) => {
@@ -197,10 +157,7 @@ export default function SaaSDevelopmentPage(): JSX.Element {
                   <p className="text-gray-400 mb-4">{feature.description}</p>
                   <ul className="space-y-2">
                     {feature.includes.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-center text-sm text-gray-300"
-                      >
+                      <li key={item} className="flex items-center text-sm text-gray-300">
                         <div className="w-2 h-2 bg-indigo-400 rounded-full mr-3" />
                         {item}
                       </li>
@@ -215,9 +172,7 @@ export default function SaaSDevelopmentPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Build Your SaaS?
-          </h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Build Your SaaS?</h2>
           <p className="text-gray-400 mb-8">
             Tell us about your product idea and we'll help you build it right.
           </p>

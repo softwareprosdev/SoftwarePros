@@ -4,13 +4,18 @@ import { Box, Button, Card, CircularProgress, Typography } from "@mui/joy";
 import { useParams, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
+interface Participant {
+  id: string;
+  name?: string;
+}
+
 export default function MeetingJoinPage() {
   const params = useParams();
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isConnected, setIsConnected] = useState(false);
-  const [participants, setParticipants] = useState<unknown[]>([]);
+  const [participants, setParticipants] = useState<Participant[]>([]);
   const [isVideoOn, setIsVideoOn] = useState(true);
   const [isAudioOn, setIsAudioOn] = useState(true);
   const meetingFrameRef = useRef<HTMLDivElement>(null);
@@ -43,7 +48,7 @@ export default function MeetingJoinPage() {
 
       // Clean up RTC client when leaving
       if (rtcClientRef.current) {
-        rtcClientRef.current.leave();
+        // rtcClientRef.current.leave();
         rtcClientRef.current = null;
       }
     };

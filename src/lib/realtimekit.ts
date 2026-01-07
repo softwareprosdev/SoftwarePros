@@ -19,6 +19,7 @@ interface CreateMeetingRequest {
 }
 
 interface UpdateMeetingRequest {
+  [key: string]: string | number | boolean | undefined;
   title?: string;
   record_on_start?: boolean;
   live_stream_on_start?: boolean;
@@ -63,6 +64,7 @@ interface MeetingListResponse {
 
 // Participant interfaces
 interface CreateParticipantRequest {
+  [key: string]: string | number | boolean | Record<string, string | number | boolean> | undefined;
   name: string;
   preset_name: string;
   custom_participant_id?: string;
@@ -121,6 +123,7 @@ interface PresetData {
 }
 
 interface CreatePresetRequest {
+  [key: string]: string | PresetData["permissions"];
   name: string;
   permissions: PresetData["permissions"];
 }
@@ -174,6 +177,7 @@ interface LivestreamData {
 }
 
 interface CreateLivestreamRequest {
+  [key: string]: string | undefined;
   rtmp_url: string;
   stream_key?: string;
 }
@@ -239,6 +243,7 @@ interface WebhookData {
 }
 
 interface CreateWebhookRequest {
+  [key: string]: string | string[] | undefined;
   url: string;
   events: string[];
   secret?: string;

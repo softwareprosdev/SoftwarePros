@@ -1,11 +1,4 @@
-import {
-  AutoMode,
-  Chat,
-  ContactPhone,
-  Email,
-  Home,
-  Leaderboard,
-} from "@mui/icons-material";
+import { AutoMode, Chat, ContactPhone, Email, Home, Leaderboard } from "@mui/icons-material";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { JSX } from "react";
@@ -26,8 +19,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Real Estate Software Development | SoftwarePros",
-    description:
-      "Custom software that helps real estate agents capture and convert more leads.",
+    description: "Custom software that helps real estate agents capture and convert more leads.",
     url: "https://softwarepros.org/real-estate-software",
   },
 };
@@ -46,19 +38,13 @@ const services: RealEstateService[] = [
     title: "Lead Follow-Up Automation",
     description:
       "Automated follow-up sequences that nurture leads until they're ready to buy or sell.",
-    features: [
-      "Instant lead response",
-      "Drip email campaigns",
-      "SMS follow-ups",
-      "Lead scoring",
-    ],
+    features: ["Instant lead response", "Drip email campaigns", "SMS follow-ups", "Lead scoring"],
     result: "3x more leads converted",
   },
   {
     icon: ContactPhone,
     title: "Custom Real Estate CRM",
-    description:
-      "CRM systems designed specifically for how real estate agents and teams work.",
+    description: "CRM systems designed specifically for how real estate agents and teams work.",
     features: [
       "Pipeline management",
       "Transaction tracking",
@@ -70,8 +56,7 @@ const services: RealEstateService[] = [
   {
     icon: Chat,
     title: "AI Chatbots for Listings",
-    description:
-      "AI-powered chatbots that answer questions about your listings 24/7.",
+    description: "AI-powered chatbots that answer questions about your listings 24/7.",
     features: [
       "Listing-specific answers",
       "Appointment scheduling",
@@ -83,8 +68,7 @@ const services: RealEstateService[] = [
   {
     icon: Email,
     title: "SMS & Email Automation",
-    description:
-      "Automated communication that keeps you top-of-mind with leads and past clients.",
+    description: "Automated communication that keeps you top-of-mind with leads and past clients.",
     features: [
       "Birthday/anniversary emails",
       "Market updates",
@@ -98,12 +82,7 @@ const services: RealEstateService[] = [
     title: "Performance Dashboards",
     description:
       "Real-time insights into your lead sources, conversion rates, and team performance.",
-    features: [
-      "Lead source tracking",
-      "Agent leaderboards",
-      "ROI by channel",
-      "Goal tracking",
-    ],
+    features: ["Lead source tracking", "Agent leaderboards", "ROI by channel", "Goal tracking"],
     result: "Data-driven decisions",
   },
   {
@@ -130,12 +109,10 @@ export default function RealEstateSoftwarePage(): JSX.Element {
           <div className="flex justify-center mb-6">
             <Home className="w-16 h-16 text-green-400" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Real Estate Software
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Real Estate Software</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Never lose a lead again. Custom software that automates your follow-ups,
-            manages your pipeline, and helps you close more deals.
+            Never lose a lead again. Custom software that automates your follow-ups, manages your
+            pipeline, and helps you close more deals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -157,9 +134,7 @@ export default function RealEstateSoftwarePage(): JSX.Element {
       {/* Problem Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            The Real Estate Lead Problem
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-12">The Real Estate Lead Problem</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-red-400 mb-2">78%</div>
@@ -169,9 +144,7 @@ export default function RealEstateSoftwarePage(): JSX.Element {
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-400 mb-2">5 min</div>
-              <p className="text-gray-400">
-                is the maximum time to respond before leads go cold
-              </p>
+              <p className="text-gray-400">is the maximum time to respond before leads go cold</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-400 mb-2">80%</div>
@@ -186,12 +159,9 @@ export default function RealEstateSoftwarePage(): JSX.Element {
       {/* Services Grid */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            Real Estate Solutions We Build
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Real Estate Solutions We Build</h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
-            From solo agents to large brokerages, we build software that scales with
-            your business.
+            From solo agents to large brokerages, we build software that scales with your business.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => {
@@ -208,19 +178,14 @@ export default function RealEstateSoftwarePage(): JSX.Element {
                   <p className="text-gray-400 mb-4">{service.description}</p>
                   <ul className="space-y-2 mb-4">
                     {service.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-center text-sm text-gray-300"
-                      >
+                      <li key={feature} className="flex items-center text-sm text-gray-300">
                         <div className="w-2 h-2 bg-green-400 rounded-full mr-3" />
                         {feature}
                       </li>
                     ))}
                   </ul>
                   <div className="pt-4 border-t border-gray-700">
-                    <span className="text-green-400 font-semibold">
-                      Result: {service.result}
-                    </span>
+                    <span className="text-green-400 font-semibold">Result: {service.result}</span>
                   </div>
                 </div>
               );
@@ -232,12 +197,9 @@ export default function RealEstateSoftwarePage(): JSX.Element {
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Convert More Leads?
-          </h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Convert More Leads?</h2>
           <p className="text-gray-400 mb-8">
-            Get a free consultation and see how custom software can help you close
-            more deals.
+            Get a free consultation and see how custom software can help you close more deals.
           </p>
           <Link
             href="/contact"

@@ -551,7 +551,7 @@ async function sendWelcomeEmail(client: {
 // Helper function to handle step completion
 async function handleStepCompletion(
   step: { title: string; id: string; status: string; step?: string },
-  client: { id: string; companyName: string },
+  client: { id: string; companyName: string; projectType?: string | null },
 ) {
   try {
     console.log(`✅ Step completed: ${step.title} for client ${client.companyName}`);
@@ -619,7 +619,7 @@ async function handleStepCompletion(
             clientId: client.id,
             metadata: JSON.stringify({
               onboardingCompletedAt: new Date().toISOString(),
-              projectType: client.projectType,
+              projectType: client.projectType || undefined,
             }),
           },
         });

@@ -59,8 +59,8 @@ export default function HeroSection() {
 
           {/* Description */}
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            We build revenue-driving, automation-focused software for businesses that want more leads,
-            less manual work, and predictable growth.
+            We build revenue-driving, automation-focused software for businesses that want more
+            leads, less manual work, and predictable growth.
           </p>
 
           {/* CTA Buttons */}

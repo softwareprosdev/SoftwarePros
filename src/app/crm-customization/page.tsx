@@ -1,11 +1,4 @@
-import {
-  AccountTree,
-  Api,
-  AutoMode,
-  Dashboard,
-  Extension,
-  SyncAlt,
-} from "@mui/icons-material";
+import { AccountTree, Api, AutoMode, Dashboard, Extension, SyncAlt } from "@mui/icons-material";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { JSX } from "react";
@@ -67,8 +60,7 @@ const crmServices: CRMService[] = [
   {
     icon: Extension,
     title: "Custom Extensions",
-    description:
-      "Extend your CRM with custom features that don't exist out of the box.",
+    description: "Extend your CRM with custom features that don't exist out of the box.",
     deliverables: [
       "Custom modules",
       "Advanced reporting",
@@ -79,8 +71,7 @@ const crmServices: CRMService[] = [
   {
     icon: SyncAlt,
     title: "CRM Integrations",
-    description:
-      "Connect your CRM to all your other business tools for a single source of truth.",
+    description: "Connect your CRM to all your other business tools for a single source of truth.",
     deliverables: [
       "Two-way data sync",
       "Real-time updates",
@@ -91,8 +82,7 @@ const crmServices: CRMService[] = [
   {
     icon: Dashboard,
     title: "Custom Dashboards",
-    description:
-      "Build dashboards that show the metrics your team actually needs to see.",
+    description: "Build dashboards that show the metrics your team actually needs to see.",
     deliverables: [
       "Sales performance",
       "Pipeline analytics",
@@ -103,14 +93,8 @@ const crmServices: CRMService[] = [
   {
     icon: Api,
     title: "API Development",
-    description:
-      "Custom APIs that let you build on top of your CRM for advanced use cases.",
-    deliverables: [
-      "RESTful APIs",
-      "Webhook handlers",
-      "Batch operations",
-      "Custom endpoints",
-    ],
+    description: "Custom APIs that let you build on top of your CRM for advanced use cases.",
+    deliverables: ["RESTful APIs", "Webhook handlers", "Batch operations", "Custom endpoints"],
   },
 ];
 
@@ -133,12 +117,10 @@ export default function CRMCustomizationPage(): JSX.Element {
           <div className="flex justify-center mb-6">
             <Extension className="w-16 h-16 text-orange-400" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            CRM Customization
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">CRM Customization</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Maximize your CRM investment with custom pipelines, automation, and
-            integrations that fit your exact workflow.
+            Maximize your CRM investment with custom pipelines, automation, and integrations that
+            fit your exact workflow.
           </p>
           <Link
             href="/contact"
@@ -151,9 +133,7 @@ export default function CRMCustomizationPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Platforms We Customize
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Platforms We Customize</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {platforms.map((platform) => (
               <div
@@ -169,12 +149,9 @@ export default function CRMCustomizationPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            CRM Services We Offer
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-4">CRM Services We Offer</h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
-            From simple customizations to complete CRM overhauls, we make your CRM
-            work for you.
+            From simple customizations to complete CRM overhauls, we make your CRM work for you.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {crmServices.map((service) => {
@@ -191,10 +168,7 @@ export default function CRMCustomizationPage(): JSX.Element {
                   <p className="text-gray-400 mb-4">{service.description}</p>
                   <ul className="space-y-2">
                     {service.deliverables.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-center text-sm text-gray-300"
-                      >
+                      <li key={item} className="flex items-center text-sm text-gray-300">
                         <div className="w-2 h-2 bg-orange-400 rounded-full mr-3" />
                         {item}
                       </li>
@@ -209,12 +183,9 @@ export default function CRMCustomizationPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Optimize Your CRM?
-          </h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Optimize Your CRM?</h2>
           <p className="text-gray-400 mb-8">
-            Get a free CRM audit and discover how customization can improve your
-            sales process.
+            Get a free CRM audit and discover how customization can improve your sales process.
           </p>
           <Link
             href="/contact"

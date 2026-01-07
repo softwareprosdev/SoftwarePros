@@ -127,12 +127,10 @@ export default function InternalToolsPage(): JSX.Element {
           <div className="flex justify-center mb-6">
             <AdminPanelSettings className="w-16 h-16 text-teal-400" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Custom Internal Tools
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Custom Internal Tools</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Stop forcing your team to use tools that don't fit your workflow. We build
-            custom internal tools that work exactly how your business operates.
+            Stop forcing your team to use tools that don't fit your workflow. We build custom
+            internal tools that work exactly how your business operates.
           </p>
           <Link
             href="/contact"
@@ -145,9 +143,7 @@ export default function InternalToolsPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Why Custom Internal Tools?
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Why Custom Internal Tools?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-red-400 mb-2">73%</div>
@@ -157,15 +153,11 @@ export default function InternalToolsPage(): JSX.Element {
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-400 mb-2">40%</div>
-              <p className="text-gray-400">
-                of employee time is spent on manual data entry
-              </p>
+              <p className="text-gray-400">of employee time is spent on manual data entry</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-400 mb-2">88%</div>
-              <p className="text-gray-400">
-                of spreadsheets contain significant errors
-              </p>
+              <p className="text-gray-400">of spreadsheets contain significant errors</p>
             </div>
           </div>
         </div>
@@ -173,9 +165,7 @@ export default function InternalToolsPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            Internal Tools We Build
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Internal Tools We Build</h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
             From simple data entry forms to complex operations management systems.
           </p>
@@ -194,10 +184,7 @@ export default function InternalToolsPage(): JSX.Element {
                   <p className="text-gray-400 mb-4">{tool.description}</p>
                   <ul className="space-y-2">
                     {tool.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-center text-sm text-gray-300"
-                      >
+                      <li key={feature} className="flex items-center text-sm text-gray-300">
                         <div className="w-2 h-2 bg-teal-400 rounded-full mr-3" />
                         {feature}
                       </li>
@@ -212,12 +199,10 @@ export default function InternalToolsPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Replace Your Spreadsheets?
-          </h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Replace Your Spreadsheets?</h2>
           <p className="text-gray-400 mb-8">
-            Tell us about your current workflow and we'll design a custom tool that
-            makes your team more productive.
+            Tell us about your current workflow and we'll design a custom tool that makes your team
+            more productive.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

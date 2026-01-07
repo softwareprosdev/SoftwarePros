@@ -49,7 +49,11 @@
       "WebFetch(domain:developers.google.com)",
       "Read(//Users/softwareprosorg/Downloads/Asteru - Agency Landing Page/**)",
       "Bash(find \"/Users/softwareprosorg/Downloads/Asteru - Agency Landing Page\" -type f ( -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.jpeg\" -o -name \"*.gif\" -o -name \"*.webp\" -o -name \"*.svg\" ))",
-      "Bash(gh auth status:*)"
+      "Bash(gh auth status:*)",
+      "Bash(cat:*)",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)"
     ],
     "deny": [],
     "ask": []

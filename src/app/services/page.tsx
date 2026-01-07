@@ -10,16 +10,7 @@ import {
   RocketLaunch,
   TrendingUp,
 } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  Chip,
-  Container,
-  Grid,
-  Typography,
-} from "@mui/joy";
+import { Box, Button, Card, CardContent, Chip, Container, Grid, Typography } from "@mui/joy";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
@@ -203,8 +194,8 @@ export default function ServicesPage() {
                   lineHeight: 1.6,
                 }}
               >
-                We build revenue-driving, automation-focused software for businesses
-                that want more leads, less manual work, and predictable growth.
+                We build revenue-driving, automation-focused software for businesses that want more
+                leads, less manual work, and predictable growth.
               </Typography>
             </Box>
           </motion.div>
@@ -214,10 +205,7 @@ export default function ServicesPage() {
       {/* Who We Help */}
       <Box sx={{ py: 6, backgroundColor: "#111827" }}>
         <Container maxWidth="lg">
-          <Typography
-            level="h3"
-            sx={{ textAlign: "center", mb: 4, color: "white" }}
-          >
+          <Typography level="h3" sx={{ textAlign: "center", mb: 4, color: "white" }}>
             Who We Help
           </Typography>
           <Grid container spacing={3}>
@@ -255,18 +243,15 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <Box sx={{ py: 8, backgroundColor: "#0F172A" }}>
         <Container maxWidth="lg">
-          <Typography
-            level="h2"
-            sx={{ textAlign: "center", mb: 2, color: "white" }}
-          >
+          <Typography level="h2" sx={{ textAlign: "center", mb: 2, color: "white" }}>
             What We Build
           </Typography>
           <Typography
             level="body-lg"
             sx={{ textAlign: "center", mb: 6, color: "#9CA3AF", maxWidth: 600, mx: "auto" }}
           >
-            Custom software solutions that help you capture more leads, reduce
-            manual work, and scale faster.
+            Custom software solutions that help you capture more leads, reduce manual work, and
+            scale faster.
           </Typography>
           <Grid container spacing={4}>
             {services.map((service, index) => (
@@ -324,10 +309,7 @@ export default function ServicesPage() {
                         </Box>
                       </Box>
 
-                      <Typography
-                        level="body-md"
-                        sx={{ color: "#9CA3AF", lineHeight: 1.6, mb: 3 }}
-                      >
+                      <Typography level="body-md" sx={{ color: "#9CA3AF", lineHeight: 1.6, mb: 3 }}>
                         {service.description}
                       </Typography>
 
@@ -386,8 +368,8 @@ export default function ServicesPage() {
               Ready to Automate Your Business?
             </Typography>
             <Typography level="body-lg" sx={{ mb: 4, opacity: 0.9, maxWidth: "600px", mx: "auto" }}>
-              Get a free automation audit and discover how custom software can help
-              you capture more leads, reduce manual work, and scale faster.
+              Get a free automation audit and discover how custom software can help you capture more
+              leads, reduce manual work, and scale faster.
             </Typography>
             <Button
               component="a"

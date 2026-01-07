@@ -228,7 +228,11 @@ export async function performSecurityCheck(
     details.spf = spfResult;
 
     if (!spfResult.valid) {
-      logSecurityEvent("spf_failed", { domain, clientIP, reason: spfResult.reason });
+      logSecurityEvent("spf_failed", {
+        domain,
+        clientIP: clientIP || "N/A",
+        reason: spfResult.reason || "No reason provided",
+      });
       return { passed: false, reason: spfResult.reason, details };
     }
 
@@ -238,7 +242,7 @@ export async function performSecurityCheck(
 
     if (!contentResult.valid) {
       logSecurityEvent("content_threat", {
-        threats: contentResult.threats,
+        threats: contentResult.threats.join(", "),
         subject: emailData.subject,
       });
       return {
@@ -255,7 +259,10 @@ export async function performSecurityCheck(
     return { passed: true, details };
   } catch (error) {
     const errorMsg = error instanceof Error ? error.message : "Unknown security check error";
-    logSecurityEvent("validation_failed", { error: errorMsg, emailData });
+    logSecurityEvent("validation_failed", {
+      error: errorMsg,
+      emailData: JSON.stringify(emailData),
+    });
     return { passed: false, reason: errorMsg, details };
   }
 }

@@ -623,7 +623,7 @@ export class EmailAutomationService {
     const emailData = {
       clientName: client.contactName,
       companyName: client.companyName,
-      projectType: client.projectType,
+      projectType: client.projectType || "General",
       expectedLaunchDate: client.expectedLaunchDate
         ? new Date(client.expectedLaunchDate).toLocaleDateString()
         : "TBD",
@@ -744,9 +744,9 @@ export class EmailAutomationService {
     await this.sendOnboardingEmail("milestone_completed", client, {
       milestoneName: milestone.name,
       completedDate: new Date().toLocaleDateString(),
-      paymentAmount: milestone.paymentAmount,
+      paymentAmount: milestone.paymentAmount || 0,
       progressPercentage: additionalData.progressPercentage || 50,
-      deliverables: additionalData.deliverables || [],
+      deliverables: ((additionalData.deliverables as unknown as string[]) || []).join(", "),
       nextStepsDescription:
         additionalData.nextStepsDescription || "Continuing with next phase of development.",
       nextMilestone: additionalData.nextMilestone,

@@ -45,45 +45,27 @@ const leadServices: LeadService[] = [
     title: "Lead Capture Systems",
     description:
       "Multi-channel lead capture that funnels prospects from every source into your pipeline.",
-    features: [
-      "Smart forms",
-      "Landing pages",
-      "Chat widgets",
-      "API integrations",
-    ],
+    features: ["Smart forms", "Landing pages", "Chat widgets", "API integrations"],
     result: "2x more leads captured",
   },
   {
     icon: Score,
     title: "Lead Scoring",
-    description:
-      "AI-powered lead scoring that identifies your hottest prospects automatically.",
-    features: [
-      "Behavior scoring",
-      "Demographic fit",
-      "Engagement tracking",
-      "Priority alerts",
-    ],
+    description: "AI-powered lead scoring that identifies your hottest prospects automatically.",
+    features: ["Behavior scoring", "Demographic fit", "Engagement tracking", "Priority alerts"],
     result: "Focus on best leads",
   },
   {
     icon: AutoMode,
     title: "Automated Follow-Up",
-    description:
-      "Never let a lead go cold with intelligent, personalized follow-up sequences.",
-    features: [
-      "Email sequences",
-      "SMS automation",
-      "Call reminders",
-      "Multi-touch campaigns",
-    ],
+    description: "Never let a lead go cold with intelligent, personalized follow-up sequences.",
+    features: ["Email sequences", "SMS automation", "Call reminders", "Multi-touch campaigns"],
     result: "5x follow-up rate",
   },
   {
     icon: TrackChanges,
     title: "Lead Tracking",
-    description:
-      "Track every interaction and touchpoint across the entire customer journey.",
+    description: "Track every interaction and touchpoint across the entire customer journey.",
     features: [
       "Activity timeline",
       "Source attribution",
@@ -97,19 +79,13 @@ const leadServices: LeadService[] = [
     title: "Pipeline Analytics",
     description:
       "Real-time insights into your lead pipeline, conversion rates, and revenue forecast.",
-    features: [
-      "Conversion funnels",
-      "Lead source ROI",
-      "Team performance",
-      "Revenue forecast",
-    ],
+    features: ["Conversion funnels", "Lead source ROI", "Team performance", "Revenue forecast"],
     result: "Data-driven decisions",
   },
   {
     icon: TrendingUp,
     title: "Conversion Optimization",
-    description:
-      "Continuously improve conversions with A/B testing and optimization tools.",
+    description: "Continuously improve conversions with A/B testing and optimization tools.",
     features: [
       "Form optimization",
       "Landing page testing",
@@ -128,12 +104,10 @@ export default function LeadAutomationPage(): JSX.Element {
           <div className="flex justify-center mb-6">
             <PersonAdd className="w-16 h-16 text-emerald-400" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Lead Automation
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Lead Automation</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Capture more leads, qualify them automatically, and never let a hot
-            prospect slip through the cracks.
+            Capture more leads, qualify them automatically, and never let a hot prospect slip
+            through the cracks.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -160,21 +134,15 @@ export default function LeadAutomationPage(): JSX.Element {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-red-400 mb-2">71%</div>
-              <p className="text-gray-400">
-                of leads are never followed up with
-              </p>
+              <p className="text-gray-400">of leads are never followed up with</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-400 mb-2">5 min</div>
-              <p className="text-gray-400">
-                response time needed to qualify a lead
-              </p>
+              <p className="text-gray-400">response time needed to qualify a lead</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-red-400 mb-2">80%</div>
-              <p className="text-gray-400">
-                of sales require 5+ follow-ups to close
-              </p>
+              <p className="text-gray-400">of sales require 5+ follow-ups to close</p>
             </div>
           </div>
         </div>
@@ -182,9 +150,7 @@ export default function LeadAutomationPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            Lead Automation Solutions
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Lead Automation Solutions</h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
             Everything you need to capture, qualify, and convert more leads.
           </p>
@@ -203,19 +169,14 @@ export default function LeadAutomationPage(): JSX.Element {
                   <p className="text-gray-400 mb-4">{service.description}</p>
                   <ul className="space-y-2 mb-4">
                     {service.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-center text-sm text-gray-300"
-                      >
+                      <li key={feature} className="flex items-center text-sm text-gray-300">
                         <div className="w-2 h-2 bg-emerald-400 rounded-full mr-3" />
                         {feature}
                       </li>
                     ))}
                   </ul>
                   <div className="pt-4 border-t border-gray-700">
-                    <span className="text-emerald-400 font-semibold">
-                      Result: {service.result}
-                    </span>
+                    <span className="text-emerald-400 font-semibold">Result: {service.result}</span>
                   </div>
                 </div>
               );
@@ -226,12 +187,9 @@ export default function LeadAutomationPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Capture More Leads?
-          </h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Capture More Leads?</h2>
           <p className="text-gray-400 mb-8">
-            Get a free lead audit and see how automation can transform your
-            pipeline.
+            Get a free lead audit and see how automation can transform your pipeline.
           </p>
           <Link
             href="/contact"

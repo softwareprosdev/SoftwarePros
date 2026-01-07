@@ -8,7 +8,12 @@ const services = [
     title: "Business Automation & Internal Tools",
     description:
       "Eliminate manual work with custom automation software. Replace spreadsheets, streamline operations, and build internal dashboards that drive efficiency.",
-    features: ["Workflow Automation", "Internal Dashboards", "Spreadsheet Replacement", "Operations Automation"],
+    features: [
+      "Workflow Automation",
+      "Internal Dashboards",
+      "Spreadsheet Replacement",
+      "Operations Automation",
+    ],
     color: "from-purple-600 to-blue-600",
   },
   {
@@ -16,7 +21,12 @@ const services = [
     title: "Real Estate Software & Automation",
     description:
       "Never lose a lead again. Custom CRM solutions, AI chatbots for listings, and automated follow-up systems built specifically for agents and brokerages.",
-    features: ["Lead Follow-up Automation", "Custom Real Estate CRM", "AI Chatbots for Listings", "SMS & Email Automation"],
+    features: [
+      "Lead Follow-up Automation",
+      "Custom Real Estate CRM",
+      "AI Chatbots for Listings",
+      "SMS & Email Automation",
+    ],
     color: "from-blue-600 to-cyan-600",
   },
   {
@@ -24,7 +34,12 @@ const services = [
     title: "AI-Powered Business Tools",
     description:
       "Leverage AI to automate customer service, generate content, and build intelligent workflows that scale your operations.",
-    features: ["AI Chatbots for Business", "Custom AI Workflows", "Internal AI Assistants", "AI Automation Tools"],
+    features: [
+      "AI Chatbots for Business",
+      "Custom AI Workflows",
+      "Internal AI Assistants",
+      "AI Automation Tools",
+    ],
     color: "from-cyan-600 to-teal-600",
   },
   {
@@ -40,7 +55,12 @@ const services = [
     title: "SaaS & MVP Development",
     description:
       "Launch your software product faster. We build SaaS MVPs, subscription platforms, and productized software for startups and entrepreneurs.",
-    features: ["SaaS MVP Development", "Subscription Platforms", "Productized Software", "Startup Development"],
+    features: [
+      "SaaS MVP Development",
+      "Subscription Platforms",
+      "Productized Software",
+      "Startup Development",
+    ],
     color: "from-green-600 to-emerald-600",
   },
   {
@@ -48,7 +68,12 @@ const services = [
     title: "Lead Generation & Sales Automation",
     description:
       "Capture more leads and convert them faster with custom lead capture systems, booking automation, and AI-powered responders.",
-    features: ["Lead Capture Systems", "Booking Automation", "Conversion Tracking", "AI Lead Responders"],
+    features: [
+      "Lead Capture Systems",
+      "Booking Automation",
+      "Conversion Tracking",
+      "AI Lead Responders",
+    ],
     color: "from-emerald-600 to-purple-600",
   },
 ];

@@ -77,8 +77,6 @@ export default function MeetingPopup({
   const initializeComprehensiveMeetingPopup = (data: { meetingId: string; joinUrl: string }) => {
     if (!meetingContainerRef.current) return;
 
-    const { meeting, participant } = data;
-
     // Create the popup interface immediately (no SDK loading needed)
     const loadSDK = () => {
       createComprehensivePopupInterface();
@@ -443,7 +441,7 @@ export default function MeetingPopup({
 
       window.popupExpandToFullscreen = () => {
         // Close the popup and redirect to the meeting page in the same tab
-        const joinUrl = meeting.joinUrl;
+        const joinUrl = data.joinUrl;
         popupShowNotification("Redirecting to full meeting experience...");
         setTimeout(() => {
           window.location.href = joinUrl;

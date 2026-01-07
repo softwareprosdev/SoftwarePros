@@ -13,13 +13,9 @@ export async function getRedisClient(): Promise<RedisClientType | null> {
         database: Number.parseInt(process.env.REDIS_DB || "0"),
         socket: {
           connectTimeout: 10000,
-        },
+          ...(redisUrl.startsWith("rediss://") ? { tls: true } : {}),
+        } as any,
       };
-
-      // Add TLS configuration for secure Redis connections
-      if (redisUrl.startsWith("rediss://")) {
-        redisConfig.socket.tls = true;
-      }
 
       redis = createClient(redisConfig);
 

@@ -1,11 +1,4 @@
-import {
-  AccountTree,
-  AutoMode,
-  Email,
-  Notifications,
-  Schedule,
-  Sync,
-} from "@mui/icons-material";
+import { AccountTree, AutoMode, Email, Notifications, Schedule, Sync } from "@mui/icons-material";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { JSX } from "react";
@@ -46,77 +39,42 @@ const workflowTypes: WorkflowType[] = [
     description:
       "Never miss a lead again with automated follow-up sequences that nurture prospects.",
     triggers: ["Form submission", "Email opened", "No response", "Time-based"],
-    actions: [
-      "Send emails",
-      "SMS notifications",
-      "CRM updates",
-      "Task creation",
-    ],
+    actions: ["Send emails", "SMS notifications", "CRM updates", "Task creation"],
   },
   {
     icon: AccountTree,
     title: "Approval Workflows",
-    description:
-      "Streamline approvals with automated routing, escalations, and notifications.",
+    description: "Streamline approvals with automated routing, escalations, and notifications.",
     triggers: ["Request submitted", "Document uploaded", "Threshold exceeded"],
-    actions: [
-      "Route to approver",
-      "Send reminders",
-      "Escalate if delayed",
-      "Update status",
-    ],
+    actions: ["Route to approver", "Send reminders", "Escalate if delayed", "Update status"],
   },
   {
     icon: Notifications,
     title: "Notification Systems",
-    description:
-      "Keep your team informed with intelligent notifications based on business events.",
+    description: "Keep your team informed with intelligent notifications based on business events.",
     triggers: ["New order", "Status change", "SLA warning", "Customer action"],
-    actions: [
-      "Email alerts",
-      "Slack messages",
-      "SMS notifications",
-      "In-app alerts",
-    ],
+    actions: ["Email alerts", "Slack messages", "SMS notifications", "In-app alerts"],
   },
   {
     icon: Sync,
     title: "Data Sync Workflows",
-    description:
-      "Keep your systems in sync with automated data flows between platforms.",
+    description: "Keep your systems in sync with automated data flows between platforms.",
     triggers: ["Record created", "Field updated", "Scheduled sync", "API webhook"],
-    actions: [
-      "Update CRM",
-      "Sync inventory",
-      "Update accounting",
-      "Log activity",
-    ],
+    actions: ["Update CRM", "Sync inventory", "Update accounting", "Log activity"],
   },
   {
     icon: Schedule,
     title: "Scheduled Automations",
-    description:
-      "Run recurring tasks automatically on a schedule without manual intervention.",
+    description: "Run recurring tasks automatically on a schedule without manual intervention.",
     triggers: ["Daily", "Weekly", "Monthly", "Custom schedule"],
-    actions: [
-      "Generate reports",
-      "Send summaries",
-      "Clean up data",
-      "Backup data",
-    ],
+    actions: ["Generate reports", "Send summaries", "Clean up data", "Backup data"],
   },
   {
     icon: AutoMode,
     title: "Multi-Step Workflows",
-    description:
-      "Complex business processes with conditional logic, branches, and parallel paths.",
+    description: "Complex business processes with conditional logic, branches, and parallel paths.",
     triggers: ["Process initiated", "Condition met", "External event"],
-    actions: [
-      "Conditional logic",
-      "Parallel processing",
-      "Wait for input",
-      "Loop until done",
-    ],
+    actions: ["Conditional logic", "Parallel processing", "Wait for input", "Loop until done"],
   },
 ];
 
@@ -129,12 +87,10 @@ export default function WorkflowAutomationPage(): JSX.Element {
           <div className="flex justify-center mb-6">
             <AccountTree className="w-16 h-16 text-blue-400" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Workflow Automation
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">Workflow Automation</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Automate your business processes end-to-end. From simple task automation
-            to complex multi-step workflows with conditional logic.
+            Automate your business processes end-to-end. From simple task automation to complex
+            multi-step workflows with conditional logic.
           </p>
           <Link
             href="/contact"
@@ -148,12 +104,10 @@ export default function WorkflowAutomationPage(): JSX.Element {
       {/* Workflow Types Grid */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            Types of Workflows We Build
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Types of Workflows We Build</h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
-            Every business has unique processes. We build custom workflows that match
-            exactly how your team works.
+            Every business has unique processes. We build custom workflows that match exactly how
+            your team works.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {workflowTypes.map((workflow) => {
@@ -170,9 +124,7 @@ export default function WorkflowAutomationPage(): JSX.Element {
                   <p className="text-gray-400 mb-4">{workflow.description}</p>
 
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-300 mb-2">
-                      Triggers:
-                    </h4>
+                    <h4 className="text-sm font-semibold text-gray-300 mb-2">Triggers:</h4>
                     <div className="flex flex-wrap gap-2">
                       {workflow.triggers.map((trigger) => (
                         <span
@@ -186,15 +138,10 @@ export default function WorkflowAutomationPage(): JSX.Element {
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-300 mb-2">
-                      Actions:
-                    </h4>
+                    <h4 className="text-sm font-semibold text-gray-300 mb-2">Actions:</h4>
                     <ul className="space-y-1">
                       {workflow.actions.map((action) => (
-                        <li
-                          key={action}
-                          className="flex items-center text-sm text-gray-300"
-                        >
+                        <li key={action} className="flex items-center text-sm text-gray-300">
                           <div className="w-2 h-2 bg-blue-400 rounded-full mr-3" />
                           {action}
                         </li>
@@ -211,9 +158,7 @@ export default function WorkflowAutomationPage(): JSX.Element {
       {/* Integration Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Integrations We Support
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Integrations We Support</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {[
               "HubSpot",
@@ -243,12 +188,9 @@ export default function WorkflowAutomationPage(): JSX.Element {
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Automate Your Workflows?
-          </h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Automate Your Workflows?</h2>
           <p className="text-gray-400 mb-8">
-            Tell us about your manual processes and we'll show you how to automate
-            them.
+            Tell us about your manual processes and we'll show you how to automate them.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

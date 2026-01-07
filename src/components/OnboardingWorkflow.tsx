@@ -334,7 +334,11 @@ Special Requirements: ${formData.specialRequirements}
                 <FormLabel>Company Size</FormLabel>
                 <Select
                   value={formData.companySize}
-                  onChange={(_, value) => handleInputChange("companySize", value)}
+                  onChange={(_, value) => {
+                    if (value) {
+                      handleInputChange("companySize", value);
+                    }
+                  }}
                 >
                   <Option value="startup">Startup (1-10 employees)</Option>
                   <Option value="small">Small (11-50 employees)</Option>
@@ -354,7 +358,11 @@ Special Requirements: ${formData.specialRequirements}
                 <FormLabel>Project Type</FormLabel>
                 <Select
                   value={formData.projectType}
-                  onChange={(_, value) => handleInputChange("projectType", value)}
+                  onChange={(_, value) => {
+                    if (value) {
+                      handleInputChange("projectType", value);
+                    }
+                  }}
                 >
                   {projectTypes.map((type) => (
                     <Option key={type.value} value={type.value}>
@@ -407,7 +415,11 @@ Special Requirements: ${formData.specialRequirements}
                 <FormLabel>Project Urgency</FormLabel>
                 <Select
                   value={formData.urgency}
-                  onChange={(_, value) => handleInputChange("urgency", value)}
+                  onChange={(_, value) => {
+                    if (value) {
+                      handleInputChange("urgency", value);
+                    }
+                  }}
                 >
                   <Option value="low">Low - Flexible timeline</Option>
                   <Option value="normal">Normal - Standard timeline</Option>
@@ -559,7 +571,7 @@ Special Requirements: ${formData.specialRequirements}
 
           {/* Stepper */}
           <Stepper sx={{ mb: 4 }}>
-            {steps.map((step) => (
+            {steps.map((step, index) => (
               <Step
                 key={step.title}
                 indicator={

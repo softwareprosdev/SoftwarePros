@@ -639,7 +639,7 @@ Marketing Opt-in: ${data.marketingOptIn ? "Yes" : "No"}
 
           {/* Progress Stepper */}
           <Stepper sx={{ mb: 4 }}>
-            {steps.map((step) => (
+            {steps.map((step, index) => (
               <Step
                 key={step.title}
                 indicator={

@@ -1,11 +1,4 @@
-import {
-  AutoAwesome,
-  Chat,
-  Description,
-  Psychology,
-  Search,
-  SmartToy,
-} from "@mui/icons-material";
+import { AutoAwesome, Chat, Description, Psychology, Search, SmartToy } from "@mui/icons-material";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { JSX } from "react";
@@ -69,8 +62,7 @@ const aiServices: AIService[] = [
   {
     icon: AutoAwesome,
     title: "AI Automation",
-    description:
-      "Intelligent automation that goes beyond simple rules to make smart decisions.",
+    description: "Intelligent automation that goes beyond simple rules to make smart decisions.",
     capabilities: [
       "Pattern recognition",
       "Anomaly detection",
@@ -82,14 +74,8 @@ const aiServices: AIService[] = [
   {
     icon: Description,
     title: "Content Generation",
-    description:
-      "AI-powered content creation for marketing, documentation, and communications.",
-    capabilities: [
-      "Blog generation",
-      "Email writing",
-      "Product descriptions",
-      "Report summaries",
-    ],
+    description: "AI-powered content creation for marketing, documentation, and communications.",
+    capabilities: ["Blog generation", "Email writing", "Product descriptions", "Report summaries"],
     useCases: ["Marketing content", "Sales emails", "Documentation", "Social media"],
   },
   {
@@ -108,8 +94,7 @@ const aiServices: AIService[] = [
   {
     icon: Psychology,
     title: "Custom AI Workflows",
-    description:
-      "End-to-end AI workflows that combine multiple AI capabilities for complex tasks.",
+    description: "End-to-end AI workflows that combine multiple AI capabilities for complex tasks.",
     capabilities: [
       "Multi-step processing",
       "Cross-system integration",
@@ -128,12 +113,10 @@ export default function AIBusinessToolsPage(): JSX.Element {
           <div className="flex justify-center mb-6">
             <Psychology className="w-16 h-16 text-violet-400" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            AI Business Tools
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">AI Business Tools</h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Leverage AI to automate customer service, generate content, and build
-            intelligent workflows that scale your operations.
+            Leverage AI to automate customer service, generate content, and build intelligent
+            workflows that scale your operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -154,27 +137,19 @@ export default function AIBusinessToolsPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            AI is Transforming Business
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-12">AI is Transforming Business</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-violet-400 mb-2">40%</div>
-              <p className="text-gray-400">
-                of business tasks can be automated with AI
-              </p>
+              <p className="text-gray-400">of business tasks can be automated with AI</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-violet-400 mb-2">70%</div>
-              <p className="text-gray-400">
-                reduction in customer response time with AI chatbots
-              </p>
+              <p className="text-gray-400">reduction in customer response time with AI chatbots</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-violet-400 mb-2">3x</div>
-              <p className="text-gray-400">
-                productivity increase with AI-assisted workflows
-              </p>
+              <p className="text-gray-400">productivity increase with AI-assisted workflows</p>
             </div>
           </div>
         </div>
@@ -182,12 +157,10 @@ export default function AIBusinessToolsPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            AI Solutions We Build
-          </h2>
+          <h2 className="text-3xl font-bold text-center mb-4">AI Solutions We Build</h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
-            From simple chatbots to complex AI workflows, we build solutions that
-            deliver real business value.
+            From simple chatbots to complex AI workflows, we build solutions that deliver real
+            business value.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {aiServices.map((service) => {
@@ -204,15 +177,10 @@ export default function AIBusinessToolsPage(): JSX.Element {
                   <p className="text-gray-400 mb-4">{service.description}</p>
 
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-300 mb-2">
-                      Capabilities:
-                    </h4>
+                    <h4 className="text-sm font-semibold text-gray-300 mb-2">Capabilities:</h4>
                     <ul className="space-y-1">
                       {service.capabilities.map((cap) => (
-                        <li
-                          key={cap}
-                          className="flex items-center text-sm text-gray-300"
-                        >
+                        <li key={cap} className="flex items-center text-sm text-gray-300">
                           <div className="w-2 h-2 bg-violet-400 rounded-full mr-3" />
                           {cap}
                         </li>
@@ -221,9 +189,7 @@ export default function AIBusinessToolsPage(): JSX.Element {
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-300 mb-2">
-                      Use Cases:
-                    </h4>
+                    <h4 className="text-sm font-semibold text-gray-300 mb-2">Use Cases:</h4>
                     <div className="flex flex-wrap gap-2">
                       {service.useCases.map((useCase) => (
                         <span
@@ -244,9 +210,7 @@ export default function AIBusinessToolsPage(): JSX.Element {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Ready to Add AI to Your Business?
-          </h2>
+          <h2 className="text-3xl font-bold mb-6">Ready to Add AI to Your Business?</h2>
           <p className="text-gray-400 mb-8">
             Get a free consultation to explore how AI can transform your operations.
           </p>
