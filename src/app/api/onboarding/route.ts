@@ -1,6 +1,15 @@
 import { prisma } from "@/lib/db";
 import { apiRateLimiter } from "@/lib/rate-limiter";
-import type { OnboardingDashboardData } from "@/types/onboarding";
+import type {
+  Client,
+  ClientAccess,
+  Communication,
+  Deliverable,
+  OnboardingDashboardData,
+  OnboardingResource,
+  OnboardingStep,
+  Task,
+} from "@/types/onboarding";
 import { CompanySize, OnboardingStepType, ProjectType } from "@prisma/client";
 import { type NextRequest, NextResponse } from "next/server";
 
@@ -92,9 +101,9 @@ export async function GET(request: NextRequest) {
         email: client.email,
         phone: client.phone || undefined,
         industry: client.industry || undefined,
-        companySize: client.companySize?.toLowerCase() as string,
-        projectType: client.projectType?.toLowerCase() as string,
-        status: client.status.toLowerCase() as string,
+        companySize: client.companySize?.toLowerCase() as Client["companySize"],
+        projectType: client.projectType?.toLowerCase() as Client["projectType"],
+        status: client.status.toLowerCase() as Client["status"],
         createdAt: client.createdAt.toISOString(),
         updatedAt: client.updatedAt.toISOString(),
         kickoffDate: client.kickoffDate?.toISOString(),
@@ -105,10 +114,10 @@ export async function GET(request: NextRequest) {
       onboardingSteps: client.onboardingSteps.map((step) => ({
         id: step.id,
         clientId: step.clientId,
-        step: step.step.toLowerCase() as string,
+        step: step.step.toLowerCase() as OnboardingStep["step"],
         title: step.title,
         description: step.description,
-        status: step.status.toLowerCase() as string,
+        status: step.status.toLowerCase() as OnboardingStep["status"],
         dueDate: step.dueDate?.toISOString(),
         completedDate: step.completedDate?.toISOString(),
         assignee: step.assignee || undefined,
@@ -116,7 +125,7 @@ export async function GET(request: NextRequest) {
         resources: step.resources?.map((resource) => ({
           id: resource.id,
           title: resource.title,
-          type: resource.type.toLowerCase() as string,
+          type: resource.type.toLowerCase() as OnboardingResource["type"],
           url: resource.url || undefined,
           content: resource.content || undefined,
           description: resource.description || undefined,
@@ -129,8 +138,8 @@ export async function GET(request: NextRequest) {
         description: task.description || undefined,
         assignee: task.assignee || undefined,
         dueDate: task.dueDate.toISOString(),
-        status: task.status.toLowerCase() as string,
-        priority: task.priority.toLowerCase() as string,
+        status: task.status.toLowerCase() as Task["status"],
+        priority: task.priority.toLowerCase() as Task["priority"],
         dependencies: task.dependencies,
         estimatedHours: task.estimatedHours || undefined,
         actualHours: task.actualHours || undefined,
@@ -139,8 +148,8 @@ export async function GET(request: NextRequest) {
         id: deliverable.id,
         name: deliverable.name,
         description: deliverable.description,
-        type: deliverable.type.toLowerCase() as string,
-        status: deliverable.status.toLowerCase() as string,
+        type: deliverable.type.toLowerCase() as Deliverable["type"],
+        status: deliverable.status.toLowerCase() as Deliverable["status"],
         dueDate: deliverable.dueDate.toISOString(),
         completedDate: deliverable.completedDate?.toISOString(),
         assignee: deliverable.assignee || undefined,
@@ -150,20 +159,20 @@ export async function GET(request: NextRequest) {
       communications: client.communications.map((comm) => ({
         id: comm.id,
         clientId: comm.clientId,
-        type: comm.type.toLowerCase() as string,
+        type: comm.type.toLowerCase() as Communication["type"],
         scheduledDate: comm.scheduledDate.toISOString(),
         completedDate: comm.completedDate?.toISOString(),
-        method: comm.method.toLowerCase() as string,
-        status: comm.status.toLowerCase() as string,
+        method: comm.method.toLowerCase() as Communication["method"],
+        status: comm.status.toLowerCase() as Communication["status"],
         notes: comm.notes || undefined,
         attendees: comm.attendees,
       })),
       accessRequests: client.accessRequests.map((access) => ({
         id: access.id,
         clientId: access.clientId,
-        type: access.type.toLowerCase() as string,
+        type: access.type.toLowerCase() as ClientAccess["type"],
         serviceName: access.serviceName,
-        status: access.status.toLowerCase() as string,
+        status: access.status.toLowerCase() as ClientAccess["status"],
         notes: access.notes || undefined,
         credentials: access.credentialsData ? JSON.parse(access.credentialsData) : undefined,
       })),
@@ -426,7 +435,7 @@ export async function PUT(request: NextRequest) {
     }
 
     // Convert status to enum
-    const statusEnum = status.toUpperCase() as "PENDING" | "IN_PROGRESS" | "COMPLETED" | "BLOCKED";
+    const statusEnum = status.toUpperCase() as "PENDING" | "IN_PROGRESS" | "COMPLETED" | "SKIPPED";
 
     // Update the step in a transaction
     const result = await prisma.$transaction(async (tx) => {
