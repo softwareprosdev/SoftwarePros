@@ -5,8 +5,9 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
+    # Ports are handled by Traefik labels below
+    # ports:
+    #   - "3000:3000"
     environment:
       # Core application settings
       - NODE_ENV=production
