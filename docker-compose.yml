@@ -1,6 +1,21 @@
 version: '3.8'
 
 services:
+  redis:
+    image: redis:7-alpine
+    container_name: softwarepros-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - default
+
   softwarepros-web:
     build: 
       context: .
@@ -28,7 +43,7 @@ services:
       # - DATABASE_URL=${DATABASE_URL}
 
       # Redis cache (Optional - remove if not using rate limiting)
-      # - REDIS_URL=${REDIS_URL}
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379}
 
       # Authentication (Optional - uncomment if using GitHub OAuth)
       # - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
@@ -51,6 +66,14 @@ services:
       # Coolify labels for automatic discovery
       - "coolify.managed=true"
       - "traefik.enable=true"
+      
+      # HTTP to HTTPS redirect
+      - "traefik.http.routers.softwarepros-http.rule=Host(`softwarepros.org`) || Host(`www.softwarepros.org`)"
+      - "traefik.http.routers.softwarepros-http.entrypoints=web"
+      - "traefik.http.routers.softwarepros-http.middlewares=https-redirect"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      
+      # HTTPS router with SSL
       - "traefik.http.routers.softwarepros.rule=Host(`softwarepros.org`) || Host(`www.softwarepros.org`)"
       - "traefik.http.routers.softwarepros.entrypoints=websecure"
       - "traefik.http.routers.softwarepros.tls=true"
@@ -58,10 +81,14 @@ services:
       - "traefik.http.routers.softwarepros.tls.domains[0].main=softwarepros.org"
       - "traefik.http.routers.softwarepros.tls.domains[0].sans=www.softwarepros.org"
       - "traefik.http.services.softwarepros.loadbalancer.server.port=3000"
-      # Redirect www to non-www
+      
+      # Redirect www to non-www (HTTPS only)
       - "traefik.http.middlewares.redirect-www.redirectregex.regex=^https://www\\.softwarepros\\.org/(.*)"
       - "traefik.http.middlewares.redirect-www.redirectregex.replacement=https://softwarepros.org/$${1}"
       - "traefik.http.routers.softwarepros.middlewares=redirect-www"
+
+volumes:
+  redis_data:
 
 networks:
   default:
