@@ -5,50 +5,50 @@ import { useEffect, useRef, useState } from "react";
 const services = [
   {
     number: "01",
-    title: "Financial Services & FinTech",
+    title: "Business Automation & Internal Tools",
     description:
-      "Custom financial technology solutions including wealth management platforms, trading systems, and banking software.",
-    features: ["Trading Platforms", "Wealth Management", "Payment Systems", "Financial Analytics"],
+      "Eliminate manual work with custom automation software. Replace spreadsheets, streamline operations, and build internal dashboards that drive efficiency.",
+    features: ["Workflow Automation", "Internal Dashboards", "Spreadsheet Replacement", "Operations Automation"],
     color: "from-purple-600 to-blue-600",
   },
   {
     number: "02",
-    title: "Cryptocurrency & Blockchain",
+    title: "Real Estate Software & Automation",
     description:
-      "End-to-end blockchain solutions from crypto exchanges to DeFi applications and smart contracts.",
-    features: ["Crypto Exchanges", "DeFi & Web3", "Smart Contracts", "Crypto Hardware Building"],
+      "Never lose a lead again. Custom CRM solutions, AI chatbots for listings, and automated follow-up systems built specifically for agents and brokerages.",
+    features: ["Lead Follow-up Automation", "Custom Real Estate CRM", "AI Chatbots for Listings", "SMS & Email Automation"],
     color: "from-blue-600 to-cyan-600",
   },
   {
     number: "03",
-    title: "Real Estate Technology",
+    title: "AI-Powered Business Tools",
     description:
-      "Comprehensive real estate software solutions for property management, CRM, and investment platforms.",
-    features: ["Property Management", "Real Estate CRM", "MLS Integration", "Investment Platforms"],
+      "Leverage AI to automate customer service, generate content, and build intelligent workflows that scale your operations.",
+    features: ["AI Chatbots for Business", "Custom AI Workflows", "Internal AI Assistants", "AI Automation Tools"],
     color: "from-cyan-600 to-teal-600",
   },
   {
     number: "04",
-    title: "Full-Stack Web & Mobile",
+    title: "CRM Customization & Extensions",
     description:
-      "Modern, scalable web and mobile applications built with cutting-edge technologies and best practices.",
-    features: ["React & Next.js", "React Native", "TypeScript", "Cloud Infrastructure"],
+      "Maximize your CRM investment with custom integrations, automated pipelines, and extensions that fit your exact workflow.",
+    features: ["CRM Customization", "Custom Pipelines", "CRM Extensions", "HubSpot & Salesforce"],
     color: "from-teal-600 to-green-600",
   },
   {
     number: "05",
-    title: "AI & Machine Learning",
+    title: "SaaS & MVP Development",
     description:
-      "Advanced AI solutions for predictive analytics, financial forecasting, and intelligent automation.",
-    features: ["Predictive Analytics", "Financial Forecasting", "NLP & Computer Vision", "MLOps"],
+      "Launch your software product faster. We build SaaS MVPs, subscription platforms, and productized software for startups and entrepreneurs.",
+    features: ["SaaS MVP Development", "Subscription Platforms", "Productized Software", "Startup Development"],
     color: "from-green-600 to-emerald-600",
   },
   {
     number: "06",
-    title: "Enterprise & B2B Solutions",
+    title: "Lead Generation & Sales Automation",
     description:
-      "Scalable enterprise platforms and B2B systems designed to streamline business operations.",
-    features: ["Enterprise Platforms", "API Development", "Cloud Integration", "Security First"],
+      "Capture more leads and convert them faster with custom lead capture systems, booking automation, and AI-powered responders.",
+    features: ["Lead Capture Systems", "Booking Automation", "Conversion Tracking", "AI Lead Responders"],
     color: "from-emerald-600 to-purple-600",
   },
 ];
