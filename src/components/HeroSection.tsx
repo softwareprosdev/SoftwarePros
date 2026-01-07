@@ -53,14 +53,14 @@ export default function HeroSection() {
               SoftwarePros
             </h1>
             <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light max-w-4xl mx-auto">
-              FinTech, AI, Blockchain & Government Software Solutions
+              Business Automation & Custom Software Solutions
             </p>
           </div>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Specialized software development for Financial Services, Real Estate, Local Government,
-            AI/ML, and Blockchain. Empowering businesses with cutting-edge technology solutions.
+            We build revenue-driving, automation-focused software for businesses that want more leads,
+            less manual work, and predictable growth.
           </p>
 
           {/* CTA Buttons */}
@@ -84,37 +84,35 @@ export default function HeroSection() {
         {/* Animated Code Blocks - Full Width Below */}
         <div className="pt-24 grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <AnimatedCodeBlock
-            title="AI/ML"
-            code={`import tensorflow as tf
-
-model = tf.keras.Sequential([
-  tf.keras.layers.Dense(128),
-  tf.keras.layers.Dense(64),
-  tf.keras.layers.Dense(10)
-])
-model.compile(optimizer='adam')`}
+            title="Workflow Automation"
+            code={`async function automateWorkflow(trigger) {
+  const lead = await captureLead(trigger);
+  await sendFollowUp(lead);
+  await updateCRM(lead);
+  await notifyTeam(lead);
+  return { status: 'automated' };
+}`}
             delay={800}
           />
           <AnimatedCodeBlock
-            title="Blockchain"
-            code={`contract Token {
-  mapping(address => uint) balances;
-
-  function transfer(address to, uint amount) {
-    require(balances[msg.sender] >= amount);
-    balances[to] += amount;
-  }
-}`}
+            title="AI Integration"
+            code={`const aiResponse = await openai.chat({
+  model: 'gpt-4',
+  messages: [{
+    role: 'system',
+    content: 'You are a sales assistant'
+  }, { role: 'user', content: query }]
+});
+return aiResponse.choices[0];`}
             delay={1000}
           />
           <AnimatedCodeBlock
-            title="FinTech API"
-            code={`app.post('/api/payment', async (req) => {
-  const tx = await processPayment({
-    amount: req.amount,
-    currency: 'USD'
-  });
-  return { status: 'success', tx };
+            title="CRM Extension"
+            code={`app.post('/api/crm/sync', async (req) => {
+  const contacts = await fetchContacts();
+  const enriched = await enrichData(contacts);
+  await hubspot.batchUpdate(enriched);
+  return { synced: enriched.length };
 });`}
             delay={1200}
           />

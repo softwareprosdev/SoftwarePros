@@ -10,24 +10,33 @@ import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Rio Grande Valley Software Developers | FinTech, AI & Blockchain Solutions Harlingen TX",
+  title: "Business Automation & Custom Software Development | SoftwarePros",
   description:
-    "SoftwarePros - Leading Rio Grande Valley software development company in Harlingen, TX. Specialized in Financial Technology, Real Estate Software, Government Solutions, AI/ML, and Blockchain/Crypto for RGV businesses. Expert developers serving South Texas since 2020.",
+    "SoftwarePros builds custom automation, AI, and business software that helps companies capture more leads, reduce manual work, and scale faster. Specializing in workflow automation, CRM customization, real estate software, and SaaS development.",
   alternates: {
     canonical: "https://softwarepros.org",
   },
+  keywords: [
+    "business automation software",
+    "workflow automation",
+    "custom internal tools",
+    "real estate automation",
+    "AI business tools",
+    "CRM customization",
+    "SaaS development",
+    "lead automation software",
+  ],
   openGraph: {
-    title:
-      "Rio Grande Valley Software Developers | FinTech, AI & Blockchain Solutions Harlingen TX",
+    title: "Business Automation & Custom Software Development | SoftwarePros",
     description:
-      "Leading Rio Grande Valley software development company in Harlingen, TX. Specialized in Financial Technology, Real Estate Software, Government Solutions, AI/ML, and Blockchain/Crypto for RGV businesses.",
+      "We build revenue-driving, automation-focused software for businesses that want more leads, less manual work, and predictable growth.",
     url: "https://softwarepros.org",
     images: [
       {
         url: "/images/softwarepros-logo.png",
         width: 512,
         height: 512,
-        alt: "SoftwarePros",
+        alt: "SoftwarePros - Business Automation Software",
       },
     ],
   },

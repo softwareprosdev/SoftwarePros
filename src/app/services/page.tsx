@@ -1,25 +1,14 @@
 "use client";
 
-import React from "react";
-
-// Force dynamic rendering to prevent framer-motion SSG issues
-export const dynamic = "force-dynamic";
-
 import {
   ArrowForward,
-  Assessment,
-  Backup,
-  CheckCircle,
-  Cloud,
-  Healing,
-  Hub as Integration,
-  LocalHospital,
-  MedicalServices,
-  PhoneAndroid as Mobile,
-  Payment,
-  Schedule,
-  Security,
-  SupportAgent as Support,
+  AutoMode,
+  Chat,
+  Extension,
+  Home,
+  Leaderboard,
+  RocketLaunch,
+  TrendingUp,
 } from "@mui/icons-material";
 import {
   Box,
@@ -29,337 +18,145 @@ import {
   Chip,
   Container,
   Grid,
-  List,
-  ListItem,
-  ListItemDecorator,
   Typography,
 } from "@mui/joy";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
+// Force dynamic rendering to prevent framer-motion SSG issues
+export const dynamic = "force-dynamic";
+
 const services = [
   {
-    id: "clinic",
-    icon: LocalHospital,
-    title: "Medical Clinic Software",
-    subtitle: "Comprehensive Practice Management Solutions",
-    url: "/services/healthcare-practice-management",
+    id: "business-automation",
+    icon: AutoMode,
+    title: "Business Automation",
+    subtitle: "Eliminate Manual Work",
+    url: "/business-automation",
     description:
-      "Complete software ecosystem designed specifically for medical clinics, from solo practitioners to multi-location practices. Our solutions streamline operations, improve patient care, and ensure regulatory compliance.",
+      "Custom automation software that eliminates repetitive tasks, streamlines operations, and lets your team focus on what matters most.",
     features: [
-      "Electronic Health Records (EHR/EMR)",
-      "Patient Portal & Communication",
-      "Appointment Scheduling & Management",
-      "Billing & Revenue Cycle Management",
-      "Insurance Claims Processing",
-      "Prescription Management",
-      "Lab Results Integration",
-      "Reporting & Analytics",
-      "HIPAA Compliance Tools",
-      "Mobile Access & Apps",
+      "Workflow Automation",
+      "Internal Dashboards",
+      "Spreadsheet Replacement",
+      "Operations Automation",
+      "System Integrations",
+      "Admin Panels",
     ],
-    benefits: [
-      "Reduce administrative overhead by 40%",
-      "Improve patient satisfaction scores",
-      "Streamline billing and collections",
-      "Enhance clinical decision-making",
-      "Ensure regulatory compliance",
-    ],
-    color: "#0066CC",
-  },
-  {
-    id: "dental",
-    icon: Healing,
-    title: "Dental Practice Management",
-    subtitle: "Specialized Solutions for Dental Professionals",
-    url: "/services/healthcare-practice-management",
-    description:
-      "Tailored software solutions designed specifically for dental practices. Integrate digital imaging, treatment planning, and practice management into one seamless platform.",
-    features: [
-      "Digital Imaging & X-Ray Integration",
-      "Treatment Planning & Charting",
-      "Appointment Scheduling",
-      "Insurance & Claims Management",
-      "Patient Communication Tools",
-      "Inventory Management",
-      "Financial Reporting",
-      "Recall & Follow-up Systems",
-      "HIPAA Compliance",
-      "Multi-location Support",
-    ],
-    benefits: [
-      "Improve treatment planning accuracy",
-      "Reduce appointment no-shows by 30%",
-      "Streamline insurance processing",
-      "Enhance patient communication",
-      "Optimize inventory management",
-    ],
-    color: "#00AA44",
-  },
-  {
-    id: "hospital",
-    icon: MedicalServices,
-    title: "Hospital Management Systems",
-    subtitle: "Enterprise-Level Healthcare Solutions",
-    url: "/services/enterprise",
-    description:
-      "Comprehensive hospital management systems designed for large healthcare institutions. Manage patient flow, resources, and clinical operations across multiple departments.",
-    features: [
-      "Patient Flow Management",
-      "Resource Allocation & Scheduling",
-      "Clinical Decision Support",
-      "Department Integration",
-      "Pharmacy Management",
-      "Laboratory Information Systems",
-      "Radiology & Imaging",
-      "Emergency Department Management",
-      "Quality Assurance & Reporting",
-      "Interoperability Standards",
-    ],
-    benefits: [
-      "Optimize patient flow and reduce wait times",
-      "Improve resource utilization",
-      "Enhance clinical outcomes",
-      "Reduce medical errors",
-      "Streamline interdepartmental communication",
-    ],
-    color: "#CC6600",
-  },
-  {
-    id: "hipaa",
-    icon: Security,
-    title: "HIPAA Compliance Solutions",
-    subtitle: "Comprehensive Security & Compliance Framework",
-    url: "/services/hipaa-compliant-software",
-    description:
-      "Complete HIPAA compliance solutions including security assessments, policy development, staff training, and ongoing monitoring to protect patient data.",
-    features: [
-      "Security Risk Assessments",
-      "HIPAA Policy Development",
-      "Staff Training Programs",
-      "Audit Trail Management",
-      "Breach Response Planning",
-      "Business Associate Agreements",
-      "Encryption & Data Protection",
-      "Access Control Management",
-      "Compliance Monitoring",
-      "Incident Response Systems",
-    ],
-    benefits: [
-      "Achieve full HIPAA compliance",
-      "Reduce risk of data breaches",
-      "Avoid costly penalties",
-      "Build patient trust",
-      "Streamline compliance processes",
-    ],
-    color: "#AA0066",
-  },
-  {
-    id: "cloud",
-    icon: Cloud,
-    title: "Cloud Infrastructure Solutions",
-    subtitle: "Secure, Scalable Cloud Platforms",
-    url: "/services/consulting",
-    description:
-      "HIPAA-compliant cloud infrastructure solutions with 99.9% uptime guarantee. Secure data storage, automatic backups, and disaster recovery.",
-    features: [
-      "HIPAA-Compliant Cloud Hosting",
-      "Automatic Data Backups",
-      "Disaster Recovery Planning",
-      "Scalable Infrastructure",
-      "24/7 Monitoring & Support",
-      "Data Encryption at Rest & Transit",
-      "Multi-factor Authentication",
-      "Load Balancing & Optimization",
-      "Compliance Reporting",
-      "Migration Services",
-    ],
-    benefits: [
-      "Reduce IT infrastructure costs",
-      "Ensure 99.9% uptime",
-      "Automatic scaling during peak times",
-      "Enhanced data security",
-      "Simplified compliance management",
-    ],
-    color: "#6600CC",
-  },
-  {
-    id: "integration",
-    icon: Integration,
-    title: "System Integration Services",
-    subtitle: "Seamless Healthcare System Connectivity",
-    url: "/services/enterprise",
-    description:
-      "Expert system integration services to connect disparate healthcare systems, improve data flow, and optimize workflows across your organization.",
-    features: [
-      "API Development & Integration",
-      "HL7 & FHIR Standards",
-      "Legacy System Modernization",
-      "Data Migration Services",
-      "Workflow Optimization",
-      "Real-time Data Synchronization",
-      "Third-party Integrations",
-      "Custom Connector Development",
-      "Testing & Quality Assurance",
-      "Ongoing Support & Maintenance",
-    ],
-    benefits: [
-      "Eliminate data silos",
-      "Improve operational efficiency",
-      "Reduce manual data entry",
-      "Enhance data accuracy",
-      "Streamline workflows",
-    ],
-    color: "#CC0066",
-  },
-];
-
-const industries = [
-  {
-    id: "healthcare",
-    title: "Healthcare & Medical",
-    description:
-      "HIPAA-compliant software solutions for medical practices, hospitals, and healthcare providers.",
-    icon: LocalHospital,
-    features: [
-      "EHR/EMR Systems",
-      "Patient Portals",
-      "Telemedicine",
-      "Medical Billing",
-      "Compliance Tools",
-    ],
-    color: "#0066CC",
+    color: "#9333EA",
   },
   {
     id: "real-estate",
-    title: "Real Estate",
+    icon: Home,
+    title: "Real Estate Software",
+    subtitle: "Never Lose a Lead Again",
+    url: "/real-estate-software",
     description:
-      "Comprehensive property management and real estate CRM solutions for agents and brokers.",
-    icon: MedicalServices,
+      "Custom CRM solutions, AI chatbots for listings, and automated follow-up systems built specifically for agents and brokerages.",
     features: [
-      "Property Management",
-      "CRM Systems",
+      "Lead Follow-Up Automation",
+      "Custom Real Estate CRM",
+      "AI Chatbots for Listings",
+      "SMS & Email Automation",
       "MLS Integration",
-      "Transaction Management",
-      "Lead Generation",
+      "Performance Dashboards",
     ],
-    color: "#00AA44",
+    color: "#22C55E",
   },
   {
-    id: "government",
-    title: "Government Contracting",
-    description: "Secure, compliant software solutions for government agencies and contractors.",
-    icon: Security,
-    features: [
-      "Compliance Management",
-      "Secure Communications",
-      "Document Management",
-      "Audit Trails",
-      "Access Control",
-    ],
-    color: "#CC6600",
-  },
-  {
-    id: "education",
-    title: "Schools & Municipalities",
-    description: "Educational technology and municipal management systems for public institutions.",
-    icon: Assessment,
-    features: [
-      "Student Information Systems",
-      "Learning Management",
-      "Municipal Services",
-      "Public Portals",
-      "Resource Management",
-    ],
-    color: "#AA0066",
-  },
-  {
-    id: "ai-hardware",
-    title: "AI Hardware & Software Development",
-    description: "Cutting-edge AI solutions and hardware integration for intelligent systems.",
-    icon: Cloud,
-    features: [
-      "Machine Learning Models",
-      "AI Integration",
-      "Hardware Controls",
-      "IoT Connectivity",
-      "Predictive Analytics",
-    ],
-    color: "#6600CC",
-  },
-  {
-    id: "iot",
-    title: "IoT & Industrial",
-    description: "Internet of Things and industrial automation solutions for smart manufacturing.",
-    icon: Integration,
-    features: [
-      "Sensor Integration",
-      "Real-time Monitoring",
-      "Predictive Maintenance",
-      "Industrial Controls",
-      "Data Analytics",
-    ],
-    color: "#CC0066",
-  },
-  {
-    id: "financial",
-    title: "Financial Services & Banking",
+    id: "ai-tools",
+    icon: Chat,
+    title: "AI Business Tools",
+    subtitle: "Leverage AI to Scale",
+    url: "/ai-business-tools",
     description:
-      "Secure financial technology solutions with regulatory compliance and fraud protection.",
-    icon: Payment,
+      "AI chatbots, automation tools, and intelligent workflows that handle customer service, generate content, and scale your operations.",
     features: [
-      "Payment Processing",
-      "Risk Management",
-      "Regulatory Compliance",
-      "Mobile Banking",
-      "Fraud Detection",
+      "AI Chatbots",
+      "Internal AI Assistants",
+      "AI Automation",
+      "Content Generation",
+      "Intelligent Search",
+      "Custom AI Workflows",
     ],
-    color: "#0066AA",
+    color: "#8B5CF6",
   },
   {
-    id: "retail",
-    title: "Retail & E-commerce",
+    id: "crm",
+    icon: Extension,
+    title: "CRM Customization",
+    subtitle: "Maximize Your CRM Investment",
+    url: "/crm-customization",
     description:
-      "Complete e-commerce platforms and retail management systems for online and brick-and-mortar stores.",
-    icon: Assessment,
+      "Expert customization for HubSpot, Salesforce, and custom CRM development. Pipelines, automation, and integrations that fit your workflow.",
     features: [
-      "E-commerce Platforms",
-      "Inventory Management",
-      "Point of Sale",
-      "Customer Analytics",
-      "Supply Chain",
+      "Custom Pipelines",
+      "CRM Automation",
+      "Custom Extensions",
+      "System Integrations",
+      "Custom Dashboards",
+      "API Development",
     ],
-    color: "#CC9900",
+    color: "#F97316",
   },
   {
-    id: "manufacturing",
-    title: "Manufacturing",
+    id: "saas",
+    icon: RocketLaunch,
+    title: "SaaS & MVP Development",
+    subtitle: "Launch Your Product Fast",
+    url: "/saas-development",
     description:
-      "Manufacturing execution systems and quality control solutions for production environments.",
-    icon: Backup,
+      "Build SaaS platforms and MVPs with subscription billing, multi-tenancy, and everything you need to validate and scale your product.",
     features: [
-      "Production Planning",
-      "Quality Control",
-      "Supply Chain Management",
-      "Equipment Monitoring",
-      "Compliance Tracking",
+      "Multi-Tenant Architecture",
+      "Subscription Billing",
+      "User Authentication",
+      "Analytics & Metrics",
+      "Cloud Infrastructure",
+      "Rapid MVP Development",
     ],
-    color: "#009966",
+    color: "#6366F1",
   },
   {
-    id: "logistics",
-    title: "Logistics & Transportation",
+    id: "lead-sales",
+    icon: TrendingUp,
+    title: "Lead & Sales Automation",
+    subtitle: "Capture & Convert More Leads",
+    url: "/lead-automation",
     description:
-      "Transportation management and logistics optimization systems for efficient operations.",
-    icon: Schedule,
+      "Custom lead capture, scoring, and nurturing systems that convert more prospects into customers automatically.",
     features: [
-      "Fleet Management",
-      "Route Optimization",
-      "Tracking Systems",
-      "Warehouse Management",
-      "Delivery Analytics",
+      "Lead Capture Systems",
+      "Lead Scoring",
+      "Automated Follow-Up",
+      "Pipeline Automation",
+      "Sales Analytics",
+      "Booking Automation",
     ],
-    color: "#9900CC",
+    color: "#10B981",
+  },
+];
+
+const whoWeHelp = [
+  {
+    title: "Real Estate Agents & Brokerages",
+    description: "Automate lead follow-ups and close more deals",
+    icon: Home,
+  },
+  {
+    title: "Service Businesses",
+    description: "Streamline operations and reduce manual work",
+    icon: AutoMode,
+  },
+  {
+    title: "SaaS Founders",
+    description: "Launch and scale your software product",
+    icon: RocketLaunch,
+  },
+  {
+    title: "Sales Teams",
+    description: "Capture more leads and automate outreach",
+    icon: Leaderboard,
   },
 ];
 
@@ -370,7 +167,7 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <Box
         sx={{
-          background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+          background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
           py: 8,
           position: "relative",
           overflow: "hidden",
@@ -389,157 +186,64 @@ export default function ServicesPage() {
                   fontSize: { xs: "2.5rem", md: "3.5rem" },
                   fontWeight: "bold",
                   mb: 3,
-                  background: "linear-gradient(45deg, #0066CC, #004499)",
+                  background: "linear-gradient(45deg, #9333EA, #6366F1)",
                   backgroundClip: "text",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                Healthcare Software Services
+                Business Automation & Custom Software
               </Typography>
               <Typography
                 level="h4"
                 sx={{
-                  color: "neutral.600",
+                  color: "neutral.400",
                   maxWidth: "800px",
                   mx: "auto",
                   lineHeight: 1.6,
                 }}
               >
-                Comprehensive software solutions tailored for medical practices, hospitals, and
-                healthcare providers. HIPAA-compliant, secure, and designed for excellence.
+                We build revenue-driving, automation-focused software for businesses
+                that want more leads, less manual work, and predictable growth.
               </Typography>
             </Box>
           </motion.div>
         </Container>
       </Box>
 
-      {/* Services Grid */}
-      <Box sx={{ py: 8, backgroundColor: "background.body" }}>
+      {/* Who We Help */}
+      <Box sx={{ py: 6, backgroundColor: "#111827" }}>
         <Container maxWidth="lg">
-          <Grid container spacing={6}>
-            {services.map((service, index) => (
-              <Grid key={service.id} xs={12}>
+          <Typography
+            level="h3"
+            sx={{ textAlign: "center", mb: 4, color: "white" }}
+          >
+            Who We Help
+          </Typography>
+          <Grid container spacing={3}>
+            {whoWeHelp.map((item, index) => (
+              <Grid key={item.title} xs={12} sm={6} md={3}>
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
                   <Card
-                    variant="outlined"
                     sx={{
-                      p: 4,
-                      "&:hover": {
-                        boxShadow: "lg",
-                        borderColor: service.color,
-                      },
-                      transition: "all 0.3s ease",
+                      backgroundColor: "#1F2937",
+                      border: "1px solid #374151",
+                      textAlign: "center",
+                      p: 3,
                     }}
                   >
-                    <CardContent>
-                      <Grid container spacing={4}>
-                        {/* Service Header */}
-                        <Grid xs={12} md={4}>
-                          <Box sx={{ mb: 3 }}>
-                            <Box
-                              sx={{
-                                width: 80,
-                                height: 80,
-                                borderRadius: "16px",
-                                backgroundColor: `${service.color}15`,
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                mb: 3,
-                              }}
-                            >
-                              <service.icon sx={{ fontSize: 40, color: service.color }} />
-                            </Box>
-                            <Typography
-                              level="h4"
-                              sx={{ fontWeight: "bold", mb: 1, color: "neutral.800" }}
-                            >
-                              {service.title}
-                            </Typography>
-                            <Typography
-                              level="title-md"
-                              sx={{ color: service.color, mb: 2, fontWeight: "medium" }}
-                            >
-                              {service.subtitle}
-                            </Typography>
-                            <Typography
-                              level="body-lg"
-                              sx={{ color: "neutral.600", lineHeight: 1.6, mb: 3 }}
-                            >
-                              {service.description}
-                            </Typography>
-                            <Button
-                              variant="solid"
-                              endDecorator={<ArrowForward />}
-                              onClick={() => router.push(service.url)}
-                              sx={{
-                                backgroundColor: service.color,
-                                "&:hover": {
-                                  backgroundColor: `${service.color}CC`,
-                                },
-                              }}
-                            >
-                              Learn More
-                            </Button>
-                          </Box>
-                        </Grid>
-
-                        {/* Features & Benefits */}
-                        <Grid xs={12} md={8}>
-                          <Grid container spacing={3}>
-                            {/* Features */}
-                            <Grid xs={12} sm={6}>
-                              <Typography
-                                level="title-md"
-                                sx={{ fontWeight: "bold", mb: 2, color: "neutral.800" }}
-                              >
-                                Key Features
-                              </Typography>
-                              <List size="sm">
-                                {service.features.map((feature) => (
-                                  <ListItem key={feature}>
-                                    <ListItemDecorator>
-                                      <CheckCircle sx={{ fontSize: 16, color: service.color }} />
-                                    </ListItemDecorator>
-                                    <Typography level="body-sm" sx={{ color: "neutral.700" }}>
-                                      {feature}
-                                    </Typography>
-                                  </ListItem>
-                                ))}
-                              </List>
-                            </Grid>
-
-                            {/* Benefits */}
-                            <Grid xs={12} sm={6}>
-                              <Typography
-                                level="title-md"
-                                sx={{ fontWeight: "bold", mb: 2, color: "neutral.800" }}
-                              >
-                                Key Benefits
-                              </Typography>
-                              <List size="sm">
-                                {service.benefits.map((benefit) => (
-                                  <ListItem key={benefit}>
-                                    <ListItemDecorator>
-                                      <CheckCircle sx={{ fontSize: 16, color: "success.500" }} />
-                                    </ListItemDecorator>
-                                    <Typography level="body-sm" sx={{ color: "neutral.700" }}>
-                                      {benefit}
-                                    </Typography>
-                                  </ListItem>
-                                ))}
-                              </List>
-                            </Grid>
-                          </Grid>
-                        </Grid>
-                      </Grid>
-                    </CardContent>
+                    <item.icon sx={{ fontSize: 40, color: "#9333EA", mb: 2 }} />
+                    <Typography level="title-lg" sx={{ color: "white", mb: 1 }}>
+                      {item.title}
+                    </Typography>
+                    <Typography level="body-sm" sx={{ color: "#9CA3AF" }}>
+                      {item.description}
+                    </Typography>
                   </Card>
                 </motion.div>
               </Grid>
@@ -548,45 +252,25 @@ export default function ServicesPage() {
         </Container>
       </Box>
 
-      {/* Industries Section */}
-      <Box sx={{ py: 8, backgroundColor: "neutral.50" }}>
+      {/* Services Grid */}
+      <Box sx={{ py: 8, backgroundColor: "#0F172A" }}>
         <Container maxWidth="lg">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+          <Typography
+            level="h2"
+            sx={{ textAlign: "center", mb: 2, color: "white" }}
           >
-            <Box sx={{ textAlign: "center", mb: 6 }}>
-              <Typography
-                level="h2"
-                sx={{
-                  fontSize: { xs: "2rem", md: "2.5rem" },
-                  fontWeight: "bold",
-                  mb: 3,
-                  color: "neutral.800",
-                }}
-              >
-                Industries We Serve
-              </Typography>
-              <Typography
-                level="h4"
-                sx={{
-                  color: "neutral.600",
-                  maxWidth: "800px",
-                  mx: "auto",
-                  lineHeight: 1.6,
-                }}
-              >
-                Specialized software solutions tailored to meet the unique requirements and
-                compliance needs of various industries.
-              </Typography>
-            </Box>
-          </motion.div>
-
+            What We Build
+          </Typography>
+          <Typography
+            level="body-lg"
+            sx={{ textAlign: "center", mb: 6, color: "#9CA3AF", maxWidth: 600, mx: "auto" }}
+          >
+            Custom software solutions that help you capture more leads, reduce
+            manual work, and scale faster.
+          </Typography>
           <Grid container spacing={4}>
-            {industries.map((industry, index) => (
-              <Grid key={industry.id} xs={12} md={6}>
+            {services.map((service, index) => (
+              <Grid key={service.id} xs={12} md={6}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -597,10 +281,12 @@ export default function ServicesPage() {
                     variant="outlined"
                     sx={{
                       p: 3,
+                      backgroundColor: "#1E293B",
+                      border: "1px solid #334155",
                       height: "100%",
                       "&:hover": {
-                        boxShadow: "lg",
-                        borderColor: industry.color,
+                        boxShadow: `0 0 30px ${service.color}30`,
+                        borderColor: service.color,
                       },
                       transition: "all 0.3s ease",
                     }}
@@ -612,7 +298,7 @@ export default function ServicesPage() {
                             width: 60,
                             height: 60,
                             borderRadius: "12px",
-                            backgroundColor: `${industry.color}15`,
+                            backgroundColor: `${service.color}20`,
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -620,39 +306,40 @@ export default function ServicesPage() {
                             flexShrink: 0,
                           }}
                         >
-                          <industry.icon sx={{ fontSize: 30, color: industry.color }} />
+                          <service.icon sx={{ fontSize: 30, color: service.color }} />
                         </Box>
                         <Box sx={{ flex: 1 }}>
                           <Typography
                             level="h4"
-                            sx={{ fontWeight: "bold", mb: 1, color: "neutral.800" }}
+                            sx={{ fontWeight: "bold", mb: 0.5, color: "white" }}
                           >
-                            {industry.title}
+                            {service.title}
                           </Typography>
                           <Typography
-                            level="body-lg"
-                            sx={{ color: "neutral.600", lineHeight: 1.6, mb: 3 }}
+                            level="body-sm"
+                            sx={{ color: service.color, fontWeight: "medium" }}
                           >
-                            {industry.description}
+                            {service.subtitle}
                           </Typography>
                         </Box>
                       </Box>
 
                       <Typography
-                        level="title-md"
-                        sx={{ fontWeight: "bold", mb: 2, color: "neutral.800" }}
+                        level="body-md"
+                        sx={{ color: "#9CA3AF", lineHeight: 1.6, mb: 3 }}
                       >
-                        Key Solutions
+                        {service.description}
                       </Typography>
-                      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                        {industry.features.map((feature) => (
+
+                      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mb: 3 }}>
+                        {service.features.map((feature) => (
                           <Chip
                             key={feature}
                             variant="soft"
                             size="sm"
                             sx={{
-                              backgroundColor: `${industry.color}15`,
-                              color: industry.color,
+                              backgroundColor: `${service.color}15`,
+                              color: service.color,
                               fontWeight: "medium",
                             }}
                           >
@@ -660,6 +347,22 @@ export default function ServicesPage() {
                           </Chip>
                         ))}
                       </Box>
+
+                      <Button
+                        variant="outlined"
+                        endDecorator={<ArrowForward />}
+                        onClick={() => router.push(service.url)}
+                        sx={{
+                          borderColor: service.color,
+                          color: service.color,
+                          "&:hover": {
+                            backgroundColor: `${service.color}20`,
+                            borderColor: service.color,
+                          },
+                        }}
+                      >
+                        Learn More
+                      </Button>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -673,18 +376,18 @@ export default function ServicesPage() {
       <Box
         sx={{
           py: 8,
-          background: "linear-gradient(135deg, #0066CC 0%, #004499 100%)",
+          background: "linear-gradient(135deg, #9333EA 0%, #6366F1 100%)",
           color: "white",
         }}
       >
         <Container maxWidth="lg">
           <Box sx={{ textAlign: "center" }}>
             <Typography level="h2" sx={{ fontWeight: "bold", mb: 3, color: "white" }}>
-              Ready to Transform Your Business?
+              Ready to Automate Your Business?
             </Typography>
             <Typography level="body-lg" sx={{ mb: 4, opacity: 0.9, maxWidth: "600px", mx: "auto" }}>
-              Whether you need healthcare software, enterprise solutions, or industry-specific
-              applications, we're here to help you succeed.
+              Get a free automation audit and discover how custom software can help
+              you capture more leads, reduce manual work, and scale faster.
             </Typography>
             <Button
               component="a"
@@ -694,11 +397,11 @@ export default function ServicesPage() {
               endDecorator={<ArrowForward />}
               sx={{
                 backgroundColor: "white",
-                color: "#0066CC",
+                color: "#9333EA",
                 "&:hover": { backgroundColor: "#f8fafc" },
               }}
             >
-              Get Started Today
+              Get Free Automation Audit
             </Button>
           </Box>
         </Container>
