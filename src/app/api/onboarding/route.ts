@@ -518,8 +518,8 @@ async function sendWelcomeEmail(client: {
   id: string;
   email: string;
   companyName: string;
-  contactName?: string;
-  projectType?: string;
+  contactName?: string | null;
+  projectType?: string | null;
 }) {
   try {
     console.log(`📧 Sending welcome email to ${client.email} for ${client.companyName}`);
