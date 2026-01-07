@@ -55,6 +55,8 @@ services:
       - "traefik.http.routers.softwarepros.entrypoints=websecure"
       - "traefik.http.routers.softwarepros.tls=true"
       - "traefik.http.routers.softwarepros.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.softwarepros.tls.domains[0].main=softwarepros.org"
+      - "traefik.http.routers.softwarepros.tls.domains[0].sans=www.softwarepros.org"
       - "traefik.http.services.softwarepros.loadbalancer.server.port=3000"
       # Redirect www to non-www
       - "traefik.http.middlewares.redirect-www.redirectregex.regex=^https://www\\.softwarepros\\.org/(.*)"
