@@ -515,9 +515,11 @@ export async function PUT(request: NextRequest) {
 
 // Helper function to send welcome email
 async function sendWelcomeEmail(client: {
+  id: string;
   email: string;
   companyName: string;
   contactName?: string;
+  projectType?: string;
 }) {
   try {
     console.log(`📧 Sending welcome email to ${client.email} for ${client.companyName}`);
@@ -548,8 +550,8 @@ async function sendWelcomeEmail(client: {
 
 // Helper function to handle step completion
 async function handleStepCompletion(
-  step: { title: string; id: string; status: string },
-  client: { companyName: string },
+  step: { title: string; id: string; status: string; step?: string },
+  client: { id: string; companyName: string },
 ) {
   try {
     console.log(`✅ Step completed: ${step.title} for client ${client.companyName}`);
