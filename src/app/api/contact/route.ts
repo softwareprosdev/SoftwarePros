@@ -1,4 +1,4 @@
-import { sendContactEmail } from "@/lib/mailer";
+import { sendContactEmail } from "@/lib/resend-mailer";
 import { type NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
