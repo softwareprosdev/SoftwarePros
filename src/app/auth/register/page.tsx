@@ -38,7 +38,7 @@ import {
 import { signIn } from "next-auth/react";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -119,6 +119,10 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasValidated, setHasValidated] = useState(false);
+  const [storedPasswords, setStoredPasswords] = useState<{
+    password: string;
+    confirmPassword: string;
+  } | null>(null);
   const router = useRouter();
 
   const {
@@ -129,6 +133,7 @@ export default function RegisterPage() {
     formState: { errors },
     trigger,
     reset,
+    unregister,
   } = useForm<RegistrationFormData>({
     resolver: zodResolver(registrationSchema),
     mode: "onBlur", // Only validate on blur, not on every change
@@ -161,10 +166,20 @@ export default function RegisterPage() {
     setHasValidated(true);
     const isValid = await validateStep(currentStep);
     if (isValid) {
-      // Clear password fields when moving away from account step for security
+      // Clear password fields and visibility when moving away from account step for security
       if (currentStep === 0) {
         setShowPassword(false);
         setShowConfirmPassword(false);
+        // Store password values temporarily before clearing
+        const currentPassword = watch("password");
+        const currentConfirmPassword = watch("confirmPassword");
+        setStoredPasswords({ password: currentPassword, confirmPassword: currentConfirmPassword });
+        // Clear the form fields completely
+        setValue("password", "", { shouldValidate: false });
+        setValue("confirmPassword", "", { shouldValidate: false });
+        // Unregister the fields to remove them from form state
+        unregister("password");
+        unregister("confirmPassword");
       }
       setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
       setError(null);
@@ -173,6 +188,11 @@ export default function RegisterPage() {
   };
 
   const handleBack = () => {
+    // Restore password values when returning to account step
+    if (currentStep === 1 && storedPasswords) {
+      setValue("password", storedPasswords.password, { shouldValidate: false });
+      setValue("confirmPassword", storedPasswords.confirmPassword, { shouldValidate: false });
+    }
     setCurrentStep((prev) => Math.max(prev - 1, 0));
     setError(null);
     setHasValidated(false);
@@ -184,6 +204,14 @@ export default function RegisterPage() {
   // Helper function to safely get error message
   const getErrorMessage = (fieldError: { message?: string } | undefined) =>
     fieldError?.message || "";
+
+  // Effect to restore passwords when returning to step 0
+  useEffect(() => {
+    if (currentStep === 0 && storedPasswords) {
+      setValue("password", storedPasswords.password, { shouldValidate: false });
+      setValue("confirmPassword", storedPasswords.confirmPassword, { shouldValidate: false });
+    }
+  }, [currentStep, storedPasswords, setValue]);
 
   const onSubmit = async (data: RegistrationFormData) => {
     setHasValidated(true);
