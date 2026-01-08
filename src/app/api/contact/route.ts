@@ -1,4 +1,4 @@
-import { sendContactEmail } from "@/lib/resend-mailer";
+import { sendContactEmail as sendResendEmail } from "@/lib/resend-mailer";
 import { type NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -33,8 +33,24 @@ export async function POST(request: NextRequest) {
     const payload = await request.json();
     const data = contactSchema.parse(payload);
 
-    // Add timeout wrapper for the entire email operation
-    const emailPromise = sendContactEmail({
+    // Development fallback for missing Resend API key
+    if (!process.env.RESEND_API_KEY) {
+      if (process.env.NODE_ENV !== "production") {
+        console.log("⚠️ RESEND_API_KEY missing in dev mode. Simulating email send:");
+        console.log(JSON.stringify(data, null, 2));
+        // Simulate network delay
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        return NextResponse.json({ success: true, message: "Dev mode: Email logged to console" });
+      }
+
+      console.error("RESEND_API_KEY is missing");
+      return NextResponse.json(
+        { error: "Email configuration missing. Please contact support." },
+        { status: 500 },
+      );
+    }
+
+    const emailData = {
       name: data.name,
       email: data.email,
       phone: data.phone,
@@ -48,8 +64,12 @@ export async function POST(request: NextRequest) {
       bestTimeToReach: data.bestTimeToReach,
       website: data.website,
       hearAboutUs: data.hearAboutUs,
-    });
+    };
 
+    // Exclusively use Resend
+    const emailPromise = sendResendEmail(emailData);
+
+    // Add timeout wrapper for the entire email operation
     const timeoutPromise = new Promise((_, reject) =>
       setTimeout(() => reject(new Error("Email operation timeout")), 50_000),
     );
@@ -110,6 +130,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    console.error("Unhandled contact form error:", error);
     return NextResponse.json(
       { error: "Failed to send message. Please try again." },
       { status: 500 },
