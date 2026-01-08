@@ -75,11 +75,10 @@ services:
       - "traefik.http.routers.softwarepros-http.entrypoints=http"
       - "traefik.http.routers.softwarepros-http.middlewares=redirect-to-https@docker"
 
-      # HTTPS router with Let's Encrypt
+      # HTTPS router with TLS (certificate configured in Traefik dynamic config)
       - "traefik.http.routers.softwarepros-https.rule=Host(`softwarepros.org`) || Host(`www.softwarepros.org`)"
       - "traefik.http.routers.softwarepros-https.entrypoints=https"
       - "traefik.http.routers.softwarepros-https.tls=true"
-      - "traefik.http.routers.softwarepros-https.tls.certresolver=letsencrypt"
       - "traefik.http.routers.softwarepros-https.service=softwarepros-web"
 
       # Redirect middleware
