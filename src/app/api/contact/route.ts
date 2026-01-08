@@ -1,4 +1,5 @@
 import { sendContactEmail as sendResendEmail } from "@/lib/resend-mailer";
+import { sendContactEmail as sendSmtpEmail } from "@/lib/mailer";
 import { type NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -33,23 +34,6 @@ export async function POST(request: NextRequest) {
     const payload = await request.json();
     const data = contactSchema.parse(payload);
 
-    // Development fallback for missing Resend API key
-    if (!process.env.RESEND_API_KEY) {
-      if (process.env.NODE_ENV !== "production") {
-        console.log("⚠️ RESEND_API_KEY missing in dev mode. Simulating email send:");
-        console.log(JSON.stringify(data, null, 2));
-        // Simulate network delay
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        return NextResponse.json({ success: true, message: "Dev mode: Email logged to console" });
-      }
-
-      console.error("RESEND_API_KEY is missing");
-      return NextResponse.json(
-        { error: "Email configuration missing. Please contact support." },
-        { status: 500 },
-      );
-    }
-
     const emailData = {
       name: data.name,
       email: data.email,
@@ -66,8 +50,27 @@ export async function POST(request: NextRequest) {
       hearAboutUs: data.hearAboutUs,
     };
 
-    // Exclusively use Resend
-    const emailPromise = sendResendEmail(emailData);
+    let emailPromise;
+
+    if (process.env.RESEND_API_KEY) {
+      emailPromise = sendResendEmail(emailData);
+    } else if (process.env.SMTP_HOST) {
+      emailPromise = sendSmtpEmail(emailData);
+    } else {
+      if (process.env.NODE_ENV !== "production") {
+        console.log("⚠️ Email configuration missing in dev mode. Simulating email send:");
+        console.log(JSON.stringify(data, null, 2));
+        // Simulate network delay
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        return NextResponse.json({ success: true, message: "Dev mode: Email logged to console" });
+      }
+
+      console.error("Email configuration is missing (Resend API Key or SMTP credentials)");
+      return NextResponse.json(
+        { error: "Email configuration missing. Please contact support." },
+        { status: 500 },
+      );
+    }
 
     // Add timeout wrapper for the entire email operation
     const timeoutPromise = new Promise((_, reject) =>
