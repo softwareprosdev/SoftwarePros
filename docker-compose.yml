@@ -63,10 +63,28 @@ services:
       retries: 3
       start_period: 40s
     labels:
-      # Coolify labels - Let Coolify manage Traefik routing and SSL
+      # Coolify labels
       - "coolify.managed=true"
       - "traefik.enable=true"
+
+      # Service configuration
       - "traefik.http.services.softwarepros-web.loadbalancer.server.port=3000"
+
+      # HTTP router - redirect to HTTPS
+      - "traefik.http.routers.softwarepros-http.rule=Host(`softwarepros.org`) || Host(`www.softwarepros.org`)"
+      - "traefik.http.routers.softwarepros-http.entrypoints=http"
+      - "traefik.http.routers.softwarepros-http.middlewares=redirect-to-https@docker"
+
+      # HTTPS router with Let's Encrypt
+      - "traefik.http.routers.softwarepros-https.rule=Host(`softwarepros.org`) || Host(`www.softwarepros.org`)"
+      - "traefik.http.routers.softwarepros-https.entrypoints=https"
+      - "traefik.http.routers.softwarepros-https.tls=true"
+      - "traefik.http.routers.softwarepros-https.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.softwarepros-https.service=softwarepros-web"
+
+      # Redirect middleware
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
 
 volumes:
   redis_data:
