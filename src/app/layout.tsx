@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "SoftwarePros | Financial Technology, Blockchain & Real Estate Software Development",
+    default: "SoftwarePros | Professional Custom Software Development",
     template: "%s | SoftwarePros",
   },
   description:
@@ -108,7 +108,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://softwarepros.org",
     siteName: "SoftwarePros",
-    title: "SoftwarePros.org | FinTech, Blockchain & Real Estate Software Development",
+    title: "SoftwarePros | Professional Custom Software Development",
     description:
       "Professional B2B software development for Financial Services, Wealth Management, Cryptocurrency & Blockchain, Real Estate Technology, AI/ML, and Full-Stack Web & Mobile Applications. Enterprise solutions for growing businesses.",
     images: [
@@ -130,7 +130,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@softwareprosdev",
     creator: "@softwareprosdev",
-    title: "SoftwarePros.org | FinTech, Blockchain & Real Estate Software",
+    title: "SoftwarePros | Professional Custom Software Development",
     description:
       "Professional B2B software development for Financial Services, Cryptocurrency, Real Estate Technology, AI/ML, and Full-Stack Web & Mobile Applications.",
     images: ["/images/softwarepros-logo.png"],

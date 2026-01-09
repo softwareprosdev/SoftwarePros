@@ -53,11 +53,14 @@ export async function POST(request: NextRequest) {
     let emailPromise: Promise<unknown>;
     let provider = "none";
 
-    if (process.env.RESEND_API_KEY) {
+    const hasResend = !!process.env.RESEND_API_KEY;
+    const hasSmtp = !!process.env.SMTP_HOST;
+
+    if (hasResend) {
       provider = "Resend";
       console.log("Attempting to send email via Resend");
       emailPromise = sendResendEmail(emailData);
-    } else if (process.env.SMTP_HOST) {
+    } else if (hasSmtp) {
       provider = "SMTP";
       console.log("Attempting to send email via SMTP");
       emailPromise = sendSmtpEmail(emailData);
@@ -71,10 +74,7 @@ export async function POST(request: NextRequest) {
       }
 
       console.error("Email configuration is missing (Resend API Key or SMTP credentials)");
-      return NextResponse.json(
-        { error: "Internal Server Error: Email configuration missing." },
-        { status: 500 },
-      );
+      return NextResponse.json({ error: "Email service is not configured." }, { status: 500 });
     }
 
     // Add timeout wrapper for the entire email operation
@@ -82,7 +82,18 @@ export async function POST(request: NextRequest) {
       setTimeout(() => reject(new Error("Email operation timeout")), 50_000),
     );
 
-    await Promise.race([emailPromise, timeoutPromise]);
+    try {
+      await Promise.race([emailPromise, timeoutPromise]);
+    } catch (primaryError) {
+      if (provider === "Resend" && hasSmtp) {
+        provider = "SMTP";
+        console.warn("Resend send failed; falling back to SMTP", primaryError);
+        const smtpPromise = sendSmtpEmail(emailData);
+        await Promise.race([smtpPromise, timeoutPromise]);
+      } else {
+        throw primaryError;
+      }
+    }
 
     console.log(`Email sent successfully via ${provider}`);
     return NextResponse.json({ success: true });
@@ -109,6 +120,13 @@ export async function POST(request: NextRequest) {
         stack: error.stack,
         name: error.name,
       });
+
+      if (process.env.NODE_ENV !== "production") {
+        return NextResponse.json(
+          { error: "Failed to send message.", details: error.message },
+          { status: 500 },
+        );
+      }
 
       // Provide helpful error messages for common email issues
       if (error.message.includes("ECONNREFUSED") || error.message.includes("ENOTFOUND")) {

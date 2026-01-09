@@ -1,21 +1,6 @@
 version: '3.8'
 
 services:
-  redis:
-    image: redis:7-alpine
-    container_name: softwarepros-redis
-    restart: unless-stopped
-    command: redis-server --appendonly yes
-    volumes:
-      - redis_data:/data
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    networks:
-      - default
-
   softwarepros-web:
     build: 
       context: .
@@ -43,10 +28,7 @@ services:
       # - SMTP_SECURE=${SMTP_SECURE}
 
       # Database (Optional - remove if not using Prisma)
-       - DATABASE_URL=${DATABASE_URL}
-
-      # Redis cache (Optional - remove if not using rate limiting)
-      - REDIS_URL=${REDIS_URL:-redis://redis:6379}
+      - DATABASE_URL=${DATABASE_URL}
 
       # Authentication (Optional - uncomment if using GitHub OAuth)
       # - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
@@ -88,9 +70,6 @@ services:
       # Redirect middleware
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
-
-volumes:
-  redis_data:
 
 networks:
   default:

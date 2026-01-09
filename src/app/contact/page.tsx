@@ -276,6 +276,7 @@ export default function ContactPage() {
 
       try {
         const domain = email.split("@")[1];
+        const timeoutHandle = setTimeout(() => controller.abort(), 2000);
         // Use Cloudflare DoH to check MX for the domain
         const res = await fetch(
           `https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=MX`,
@@ -285,6 +286,7 @@ export default function ContactPage() {
             signal: controller.signal,
           },
         );
+        clearTimeout(timeoutHandle);
         if (!res.ok) throw new Error("DNS query failed");
         const data = (await res.json()) as { Answer?: Array<{ data: string }>; Status: number };
 

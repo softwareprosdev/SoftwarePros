@@ -1,9 +1,18 @@
 import { type RedisClientType, createClient } from "redis";
 
 let redis: RedisClientType | null = null;
+let redisDisabledUntil = 0;
+let connectPromise: Promise<RedisClientType | null> | null = null;
 
 export async function getRedisClient(): Promise<RedisClientType | null> {
-  if (!redis) {
+  if (process.env.DISABLE_REDIS === "true") return null;
+
+  const now = Date.now();
+  if (redisDisabledUntil > now) return null;
+  if (redis) return redis;
+  if (connectPromise) return connectPromise;
+
+  connectPromise = (async () => {
     try {
       const configuredRedisUrl = process.env.REDIS_URL;
       if (!configuredRedisUrl && process.env.NODE_ENV === "production") {
@@ -17,7 +26,7 @@ export async function getRedisClient(): Promise<RedisClientType | null> {
         password: process.env.REDIS_PASSWORD || undefined,
         database: Number.parseInt(process.env.REDIS_DB || "0"),
         socket: {
-          connectTimeout: 10000,
+          connectTimeout: 1500,
           ...(redisUrl.startsWith("rediss://") ? { tls: true } : {}),
           // biome-ignore lint/suspicious/noExplicitAny: Redis client type mismatch workaround
         } as any,
@@ -28,6 +37,7 @@ export async function getRedisClient(): Promise<RedisClientType | null> {
       redis.on("error", (err) => {
         console.error("Redis connection error:", err);
         redis = null;
+        redisDisabledUntil = Date.now() + 30_000;
       });
 
       redis.on("connect", () => {
@@ -40,13 +50,18 @@ export async function getRedisClient(): Promise<RedisClientType | null> {
       });
 
       await redis.connect();
+      return redis;
     } catch (error) {
       console.error("❌ Failed to connect to Redis:", error);
       redis = null;
+      redisDisabledUntil = Date.now() + 30_000;
+      return null;
+    } finally {
+      connectPromise = null;
     }
-  }
+  })();
 
-  return redis;
+  return connectPromise;
 }
 
 export async function testRedisConnection(): Promise<boolean> {

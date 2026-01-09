@@ -205,5 +205,10 @@ export class RateLimiter {
 }
 
 // Global rate limiter instances
-export const emailRateLimiter = new RateLimiter(15 * 60 * 1000, 10); // 10 emails per 15 minutes
-export const apiRateLimiter = new RateLimiter(15 * 60 * 1000, 100); // 100 API requests per 15 minutes
+const shouldUseRedis =
+  process.env.DISABLE_REDIS !== "true" &&
+  process.env.NODE_ENV === "production" &&
+  !!process.env.REDIS_URL;
+
+export const emailRateLimiter = new RateLimiter(15 * 60 * 1000, 10, shouldUseRedis); // 10 emails per 15 minutes
+export const apiRateLimiter = new RateLimiter(15 * 60 * 1000, 100, shouldUseRedis); // 100 API requests per 15 minutes

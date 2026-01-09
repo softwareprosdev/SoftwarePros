@@ -616,6 +616,8 @@ export class EmailAutomationService {
       throw new Error(`Email template '${type}' not found`);
     }
 
+    const siteUrl = (process.env.SITE_URL || "https://softwarepros.org").replace(/\/$/, "");
+
     const emailData = {
       clientName: client.contactName,
       companyName: client.companyName,
@@ -624,7 +626,7 @@ export class EmailAutomationService {
         ? new Date(client.expectedLaunchDate).toLocaleDateString()
         : "TBD",
       budget: client.budget?.toLocaleString() || "Contact us",
-      portalUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/portal?clientId=${client.id}`,
+      portalUrl: `${siteUrl}/portal?clientId=${client.id}`,
       ...additionalData,
     };
 
@@ -700,18 +702,21 @@ export class EmailAutomationService {
   async handleStepCompletion(step: OnboardingStep, client: Client) {
     switch (step.step) {
       case "welcome":
-        // Send kickoff scheduling email
-        await this.sendOnboardingEmail("kickoff_scheduled", client, {
-          kickoffDate: client.kickoffDate
-            ? new Date(client.kickoffDate).toLocaleDateString()
-            : "TBD",
-          meetingUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/join/${step.id}`,
-          projectManager: "Sarah Johnson",
-          leadDeveloper: "Mike Chen",
-          designer: "Alex Rodriguez",
-          projectManagerEmail: "sarah@email.softwarepros.org",
-          projectManagerPhone: "+1 (555) 123-4567",
-        });
+        {
+          const siteUrl = (process.env.SITE_URL || "https://softwarepros.org").replace(/\/$/, "");
+          // Send kickoff scheduling email
+          await this.sendOnboardingEmail("kickoff_scheduled", client, {
+            kickoffDate: client.kickoffDate
+              ? new Date(client.kickoffDate).toLocaleDateString()
+              : "TBD",
+            meetingUrl: `${siteUrl}/join/${step.id}`,
+            projectManager: "Sarah Johnson",
+            leadDeveloper: "Mike Chen",
+            designer: "Alex Rodriguez",
+            projectManagerEmail: "sarah@email.softwarepros.org",
+            projectManagerPhone: "+1 (555) 123-4567",
+          });
+        }
         break;
 
       case "access_setup":

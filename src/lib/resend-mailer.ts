@@ -229,7 +229,7 @@ export async function sendContactEmail(data: ContactEmailData, clientIP?: string
       .split(",")
       .map((email) => email.trim())
       .filter((email) => email);
-    const fromEmail = process.env.CONTACT_FROM_EMAIL || "noreply@mail.softwarepros.org";
+    const fromEmail = process.env.CONTACT_FROM_EMAIL || "noreply@softwarepros.org";
 
     // Step 6: Send email using Resend
     console.log("Sending email via Resend...");

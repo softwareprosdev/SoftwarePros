@@ -13,6 +13,10 @@ import type {
 import { CompanySize, OnboardingStepType, ProjectType } from "@prisma/client";
 import { type NextRequest, NextResponse } from "next/server";
 
+function getSiteUrl(): string {
+  return (process.env.SITE_URL || "https://softwarepros.org").replace(/\/$/, "");
+}
+
 // GET /api/onboarding - Get client dashboard data
 export async function GET(request: NextRequest) {
   try {
@@ -194,10 +198,12 @@ export async function GET(request: NextRequest) {
 // POST /api/onboarding - Create new client and start onboarding
 export async function POST(request: NextRequest) {
   try {
+    const siteUrl = getSiteUrl();
+
     // Rate limiting
     const clientIp =
       request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown";
-    const canMakeRequest = await apiRateLimiter.canMakeRequest(`api:${clientIp}`);
+    const canMakeRequest = await apiRateLimiter.canMakeRequest(`onboarding:${clientIp}`);
 
     if (!canMakeRequest) {
       return NextResponse.json(
@@ -347,7 +353,7 @@ export async function POST(request: NextRequest) {
               type: "VIDEO",
               description: "Introduction to your new platform",
               required: true,
-              url: `${process.env.NEXT_PUBLIC_SITE_URL}/resources/platform-overview`,
+              url: `${siteUrl}/resources/platform-overview`,
             },
           }),
         ]);
@@ -522,6 +528,7 @@ async function sendWelcomeEmail(client: {
   projectType?: string | null;
 }) {
   try {
+    const siteUrl = getSiteUrl();
     console.log(`📧 Sending welcome email to ${client.email} for ${client.companyName}`);
 
     // Example email content
@@ -533,7 +540,7 @@ async function sendWelcomeEmail(client: {
         clientName: client.contactName,
         companyName: client.companyName,
         projectType: client.projectType,
-        portalUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/portal?clientId=${client.id}`,
+        portalUrl: `${siteUrl}/portal?clientId=${client.id}`,
       },
     };
 
