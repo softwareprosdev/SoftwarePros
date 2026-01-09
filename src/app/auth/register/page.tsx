@@ -213,6 +213,11 @@ export default function RegisterPage() {
     }
   }, [currentStep, storedPasswords, setValue]);
 
+  const onInvalidSubmit = () => {
+    setHasValidated(true);
+    setError("Please complete the required fields before continuing.");
+  };
+
   const onSubmit = async (data: RegistrationFormData) => {
     setHasValidated(true);
     setLoading(true);
@@ -690,7 +695,7 @@ Marketing Opt-in: ${data.marketingOptIn ? "Yes" : "No"}
           </Stepper>
 
           {/* Form Content */}
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit, onInvalidSubmit)}>
             <Card variant="outlined" sx={{ mb: 3 }}>
               <CardContent>
                 <Typography level="title-lg" sx={{ mb: 2 }}>
