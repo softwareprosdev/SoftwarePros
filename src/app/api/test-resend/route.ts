@@ -25,7 +25,8 @@ export async function GET() {
       const isDomainVerified =
         Array.isArray(domainData) &&
         domainData.some(
-          (domain: any) => domain.name === "softwarepros.org" && domain.status === "verified",
+          (domain: { name: string; status: string }) =>
+            domain.name === "softwarepros.org" && domain.status === "verified",
         );
 
       return NextResponse.json({

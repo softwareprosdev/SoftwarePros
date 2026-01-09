@@ -1,5 +1,5 @@
-import { sendContactEmail as sendResendEmail } from "@/lib/resend-mailer";
 import { sendContactEmail as sendSmtpEmail } from "@/lib/mailer";
+import { sendContactEmail as sendResendEmail } from "@/lib/resend-mailer";
 import { type NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -50,11 +50,16 @@ export async function POST(request: NextRequest) {
       hearAboutUs: data.hearAboutUs,
     };
 
-    let emailPromise;
+    let emailPromise: Promise<unknown>;
+    let provider = "none";
 
     if (process.env.RESEND_API_KEY) {
+      provider = "Resend";
+      console.log("Attempting to send email via Resend");
       emailPromise = sendResendEmail(emailData);
     } else if (process.env.SMTP_HOST) {
+      provider = "SMTP";
+      console.log("Attempting to send email via SMTP");
       emailPromise = sendSmtpEmail(emailData);
     } else {
       if (process.env.NODE_ENV !== "production") {
@@ -67,7 +72,7 @@ export async function POST(request: NextRequest) {
 
       console.error("Email configuration is missing (Resend API Key or SMTP credentials)");
       return NextResponse.json(
-        { error: "Email configuration missing. Please contact support." },
+        { error: "Internal Server Error: Email configuration missing." },
         { status: 500 },
       );
     }
@@ -79,6 +84,7 @@ export async function POST(request: NextRequest) {
 
     await Promise.race([emailPromise, timeoutPromise]);
 
+    console.log(`Email sent successfully via ${provider}`);
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
     console.error("Contact form error:", error);
@@ -128,6 +134,14 @@ export async function POST(request: NextRequest) {
       ) {
         return NextResponse.json(
           { error: "Email configuration error. Please contact support." },
+          { status: 500 },
+        );
+      }
+
+      // Resend specific errors
+      if (error.message.includes("Resend")) {
+        return NextResponse.json(
+          { error: "Failed to send email via Resend service." },
           { status: 500 },
         );
       }

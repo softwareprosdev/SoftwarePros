@@ -65,6 +65,24 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const serviceTypes = [
+  // Top Requested Niches for 2026
+  "AI & Automation Solutions",
+  "Custom Admin Panels & Dashboards",
+  "Field Service Management Software",
+  "Dental Office Management Systems",
+  "Real Estate CRM & Automation",
+  "SaaS Product Development",
+  "E-commerce & B2B Marketplaces",
+  "Financial & Billing Platforms",
+  "Logistics & Supply Chain Tools",
+  "Mobile App Development",
+
+  // Specific Contractor Solutions
+  "Contractor Estimating Software",
+  "Project Management Tools",
+  "Customer Portal Development",
+  "Inventory Management Systems",
+
   // Financial Services & Wealth Management
   "Financial Services Software",
   "Wealth Management Platforms",
@@ -154,12 +172,11 @@ const serviceTypes = [
   "HIPAA Compliance Solutions",
   "Telemedicine Solutions",
 
-  // General
-  "Custom Software Development",
+  // General Services
   "Legacy System Modernization",
-  "Database Design & Optimization",
-  "Third-Party Integrations",
-  "Other",
+  "API Integration & Development",
+  "Cloud Migration & DevOps",
+  "Other Custom Solution",
 ];
 
 const budgets = [
@@ -193,7 +210,7 @@ const contactInfo = [
   {
     icon: Email,
     title: "Email Address",
-    details: ["info@softwarepros.org"],
+    details: ["info@email.softwarepros.org"],
     color: "#00AA44",
     isEmail: true,
   },

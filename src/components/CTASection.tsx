@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 import GetStartedModal from "./GetStartedModal";
 
 export default function CTASection() {
@@ -36,6 +36,7 @@ export default function CTASection() {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
             <button
+              type="button"
               onClick={() => setShowGetStarted(true)}
               className="group relative px-10 py-5 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold text-lg rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25"
             >

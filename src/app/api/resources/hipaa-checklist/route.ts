@@ -12,21 +12,18 @@ export async function GET() {
     size: "LETTER",
     margins: { top: 50, bottom: 50, left: 50, right: 50 },
   });
-
   const chunks: Buffer[] = [];
   const done = new Promise<Buffer>((resolve) => {
     doc.on("data", (c) => chunks.push(Buffer.from(c)));
     doc.on("end", () => resolve(Buffer.concat(chunks)));
   });
 
-  // Header
   doc.fontSize(18).text("HIPAA Security Rule Checklist", { underline: true });
   doc.moveDown(0.5);
-  doc.fontSize(10).fillColor("#666666").text("Provided by SoftwarePros — https://softwarepros.org");
+  doc.fontSize(10).fillColor("#666").text("Provided by SoftwarePros — https://softwarepros.org");
   doc.moveDown();
-  doc.fillColor("#000000");
+  doc.fillColor("#000");
 
-  // Simple markdown-like rendering
   const lines = content.split(/\r?\n/);
   for (const line of lines) {
     if (!line.trim()) {

@@ -5,7 +5,12 @@ let redis: RedisClientType | null = null;
 export async function getRedisClient(): Promise<RedisClientType | null> {
   if (!redis) {
     try {
-      const redisUrl = process.env.REDIS_URL ?? "redis://localhost:6379";
+      const configuredRedisUrl = process.env.REDIS_URL;
+      if (!configuredRedisUrl && process.env.NODE_ENV === "production") {
+        return null;
+      }
+
+      const redisUrl = configuredRedisUrl ?? "redis://localhost:6379";
 
       const redisConfig = {
         url: redisUrl,
@@ -14,6 +19,7 @@ export async function getRedisClient(): Promise<RedisClientType | null> {
         socket: {
           connectTimeout: 10000,
           ...(redisUrl.startsWith("rediss://") ? { tls: true } : {}),
+          // biome-ignore lint/suspicious/noExplicitAny: Redis client type mismatch workaround
         } as any,
       };
 

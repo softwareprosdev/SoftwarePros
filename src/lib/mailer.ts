@@ -138,13 +138,11 @@ function sanitizeEmailInput(data: ContactEmailData): ContactEmailData {
 
 // Determine recipient email from environment or use default
 function getRecipientEmail(): string {
-  return process.env.CONTACT_EMAIL || "simplehostingserverd@proton.me";
+  return process.env.CONTACT_EMAIL || "info@email.softwarepros.org";
 }
 
 const RECIPIENT_EMAIL = getRecipientEmail();
-const FROM_EMAIL =
-  process.env.CONTACT_FROM_EMAIL ||
-  `no-reply@${process.env.VERCEL_URL || process.env.HOSTNAME || "softwarepros.org"}`;
+const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || "no-reply@mail.softwarepros.org";
 
 async function resolveTransport() {
   // Use SMTP configuration only - no external APIs
@@ -170,24 +168,21 @@ async function resolveTransport() {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-      // TLS settings for cPanel compatibility
+      // TLS settings for better compatibility
       tls: {
-        // Basic TLS security that works with most cPanel setups
-        rejectUnauthorized: false, // More permissive for cPanel hosting
+        rejectUnauthorized: false,
         servername: process.env.SMTP_HOST,
-        // Additional cPanel compatibility settings
-        ciphers: "SSLv3",
       },
-      // Optimized connection settings for cPanel hosting compatibility
-      connectionTimeout: 45_000, // Extended for cPanel hosting
-      socketTimeout: 45_000, // Extended for cPanel hosting
-      greetingTimeout: 30_000, // Extended for cPanel hosting
+      // Optimized connection settings
+      connectionTimeout: 30_000,
+      socketTimeout: 30_000,
+      greetingTimeout: 20_000,
       // Disable less secure features
       disableFileAccess: true,
       disableUrlAccess: true,
-      // Enhanced logging for security monitoring
+      // Enhanced logging
       logger: process.env.NODE_ENV === "development",
-      debug: process.env.NODE_ENV === "development" && process.env.DEBUG_EMAIL === "true",
+      debug: process.env.NODE_ENV === "development",
       // Security headers
       headers: {
         "X-Mailer": "SoftwarePros Secure Email Service",
@@ -198,7 +193,7 @@ async function resolveTransport() {
     // Test the connection with security validation and timeout
     const verifyPromise = transporter.verify();
     const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error("SMTP verification timeout")), 30_000),
+      setTimeout(() => reject(new Error("SMTP verification timeout")), 20_000),
     );
 
     await Promise.race([verifyPromise, timeoutPromise]);
@@ -207,20 +202,20 @@ async function resolveTransport() {
   } catch (error) {
     console.error("Secure SMTP connection failed:", error);
 
-    // Enhanced error handling for cPanel/hosting provider issues
+    // Enhanced error handling
     if (error instanceof Error) {
       if (
         error.message.includes("certificate") ||
         error.message.includes("SSL") ||
         error.message.includes("TLS")
       ) {
-        throw new Error(
-          "SMTP SSL/TLS connection failed. Using fallback settings for cPanel hosting.",
+        console.warn(
+          "SMTP SSL/TLS warning: Connection issues detected. Please check certificate settings.",
         );
       }
       if (error.message.includes("ECONNREFUSED") || error.message.includes("timeout")) {
         throw new Error(
-          "SMTP connection timeout. Please verify aquareefdirect.com SMTP server is accessible.",
+          "SMTP connection timeout. Please verify SMTP server address and port are accessible.",
         );
       }
       if (
@@ -228,9 +223,7 @@ async function resolveTransport() {
         error.message.includes("Invalid login") ||
         error.message.includes("535")
       ) {
-        throw new Error(
-          "SMTP authentication failed. Please verify admin@aquareefdirect.com credentials.",
-        );
+        throw new Error("SMTP authentication failed. Please verify your SMTP credentials.");
       }
       if (error.message.includes("verification timeout")) {
         console.warn(
@@ -239,7 +232,7 @@ async function resolveTransport() {
         // In production, skip verification if it times out
         if (process.env.NODE_ENV === "production") {
           // Return transporter without verification for production
-          const transporter = nodemailer.createTransport({
+          return nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port,
             secure,
@@ -251,13 +244,8 @@ async function resolveTransport() {
               rejectUnauthorized: false,
               servername: process.env.SMTP_HOST,
             },
-            connectionTimeout: 45_000,
-            socketTimeout: 45_000,
-            greetingTimeout: 30_000,
-            disableFileAccess: true,
-            disableUrlAccess: true,
+            connectionTimeout: 30_000,
           });
-          return transporter;
         }
       }
     }
@@ -390,7 +378,7 @@ export async function sendContactEmail(data: ContactEmailData, clientIP?: string
         "X-Mailer": "SoftwarePros Secure Email Service v2.0",
         "X-Application": "SoftwarePros Contact Form",
         "X-Security-Level": "High",
-        "X-Anti-Abuse": "Report to: security@softwarepros.org",
+        "X-Anti-Abuse": "Report to: security@email.softwarepros.org",
       },
     };
 

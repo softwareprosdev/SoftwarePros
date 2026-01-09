@@ -1,11 +1,4 @@
-import {
-  GppGood,
-  Lock,
-  Policy,
-  Security,
-  Storage,
-  VerifiedUser,
-} from "@mui/icons-material";
+import { GppGood, Lock, Policy, Security, Storage, VerifiedUser } from "@mui/icons-material";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { JSX } from "react";
@@ -33,9 +26,12 @@ export default function HIPAACompliantSoftwarePage(): JSX.Element {
           <div className="flex justify-center mb-6">
             <GppGood className="w-16 h-16 text-emerald-400" />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">HIPAA Compliant Software Development</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            HIPAA Compliant Software Development
+          </h1>
           <p className="text-xl text-emerald-200 max-w-3xl mx-auto mb-8">
-            Build with confidence. We deliver healthcare software solutions that strictly adhere to HIPAA regulations, ensuring the utmost security for Protected Health Information (PHI).
+            Build with confidence. We deliver healthcare software solutions that strictly adhere to
+            HIPAA regulations, ensuring the utmost security for Protected Health Information (PHI).
           </p>
           <Link
             href="/contact"
@@ -55,42 +51,48 @@ export default function HIPAACompliantSoftwarePage(): JSX.Element {
               <Lock className="w-10 h-10 text-emerald-600 mb-4" />
               <h3 className="text-xl font-bold mb-3">End-to-End Encryption</h3>
               <p className="text-gray-600">
-                AES-256 encryption for data at rest and TLS 1.3 for data in transit, ensuring PHI remains unreadable to unauthorized parties.
+                AES-256 encryption for data at rest and TLS 1.3 for data in transit, ensuring PHI
+                remains unreadable to unauthorized parties.
               </p>
             </div>
             <div className="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
               <VerifiedUser className="w-10 h-10 text-emerald-600 mb-4" />
               <h3 className="text-xl font-bold mb-3">Access Controls</h3>
               <p className="text-gray-600">
-                Role-based access control (RBAC), multi-factor authentication (MFA), and strict session management to limit data exposure.
+                Role-based access control (RBAC), multi-factor authentication (MFA), and strict
+                session management to limit data exposure.
               </p>
             </div>
             <div className="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
               <Policy className="w-10 h-10 text-emerald-600 mb-4" />
               <h3 className="text-xl font-bold mb-3">Audit Trails</h3>
               <p className="text-gray-600">
-                Comprehensive logging of all user activities and data access events to maintain accountability and audit readiness.
+                Comprehensive logging of all user activities and data access events to maintain
+                accountability and audit readiness.
               </p>
             </div>
             <div className="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
               <Storage className="w-10 h-10 text-emerald-600 mb-4" />
               <h3 className="text-xl font-bold mb-3">Secure Backup & Recovery</h3>
               <p className="text-gray-600">
-                Encrypted backup solutions with disaster recovery planning to ensure business continuity and data integrity.
+                Encrypted backup solutions with disaster recovery planning to ensure business
+                continuity and data integrity.
               </p>
             </div>
             <div className="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
               <Security className="w-10 h-10 text-emerald-600 mb-4" />
               <h3 className="text-xl font-bold mb-3">Vulnerability Management</h3>
               <p className="text-gray-600">
-                Regular security scans, penetration testing, and patch management to identify and mitigate potential threats.
+                Regular security scans, penetration testing, and patch management to identify and
+                mitigate potential threats.
               </p>
             </div>
             <div className="p-6 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
               <GppGood className="w-10 h-10 text-emerald-600 mb-4" />
               <h3 className="text-xl font-bold mb-3">Business Associate Agreements</h3>
               <p className="text-gray-600">
-                Guidance on BAA management with vendors and cloud providers to ensure a fully compliant ecosystem.
+                Guidance on BAA management with vendors and cloud providers to ensure a fully
+                compliant ecosystem.
               </p>
             </div>
           </div>
@@ -105,20 +107,23 @@ export default function HIPAACompliantSoftwarePage(): JSX.Element {
             We utilize proven technologies configured specifically for HIPAA compliance.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-             {[
-               "AWS (HIPAA Eligible Services)",
-               "PostgreSQL (Encrypted)",
-               "Next.js (Secure Headers)",
-               "Node.js",
-               "Docker Containers",
-               "Kubernetes",
-               "Terraform (IaC)",
-               "Auth0 / Cognito",
-             ].map((tech) => (
-               <div key={tech} className="bg-white p-4 rounded shadow-sm text-center font-medium text-gray-700">
-                 {tech}
-               </div>
-             ))}
+            {[
+              "AWS (HIPAA Eligible Services)",
+              "PostgreSQL (Encrypted)",
+              "Next.js (Secure Headers)",
+              "Node.js",
+              "Docker Containers",
+              "Kubernetes",
+              "Terraform (IaC)",
+              "Auth0 / Cognito",
+            ].map((tech) => (
+              <div
+                key={tech}
+                className="bg-white p-4 rounded shadow-sm text-center font-medium text-gray-700"
+              >
+                {tech}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -128,7 +133,8 @@ export default function HIPAACompliantSoftwarePage(): JSX.Element {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Ensure Your Software is HIPAA Compliant</h2>
           <p className="text-gray-600 mb-8 text-lg">
-            Don't risk fines or data breaches. Partner with experts who understand the complexities of healthcare regulations.
+            Don't risk fines or data breaches. Partner with experts who understand the complexities
+            of healthcare regulations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

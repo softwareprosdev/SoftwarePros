@@ -76,6 +76,153 @@ const services = [
     ],
     color: "from-emerald-600 to-purple-600",
   },
+  {
+    number: "07",
+    title: "Mobile App Development",
+    description:
+      "Native and cross-platform mobile applications for iOS and Android. High-performance apps that provide a seamless user experience.",
+    features: [
+      "iOS & Android Apps",
+      "React Native / Flutter",
+      "App Store Optimization",
+      "Mobile Strategy",
+    ],
+    color: "from-purple-500 to-pink-500",
+  },
+  {
+    number: "08",
+    title: "E-commerce & B2B Marketplaces",
+    description:
+      "Robust e-commerce platforms and multi-vendor marketplaces. Secure payment processing, inventory management, and personalized shopping experiences.",
+    features: [
+      "Custom Storefronts",
+      "Multi-vendor Platforms",
+      "Payment Gateway Integration",
+      "Inventory Sync",
+    ],
+    color: "from-pink-500 to-rose-500",
+  },
+  {
+    number: "09",
+    title: "Financial & Billing Platforms",
+    description:
+      "Secure financial software for invoicing, billing, and payment processing. Compliant with financial regulations and built for scale.",
+    features: [
+      "Automated Invoicing",
+      "Payment Processing",
+      "Financial Reporting",
+      "Subscription Management",
+    ],
+    color: "from-rose-500 to-red-500",
+  },
+  {
+    number: "10",
+    title: "Field Service Management",
+    description:
+      "Software for managing field operations, scheduling, dispatching, and tracking. Keep your field team connected and efficient.",
+    features: ["Job Scheduling", "GPS Tracking", "Mobile Field App", "Customer Notifications"],
+    color: "from-red-500 to-orange-500",
+  },
+  {
+    number: "11",
+    title: "Logistics & Supply Chain Tools",
+    description:
+      "Optimize your supply chain with tracking, inventory management, and route optimization software. Reduce costs and improve delivery times.",
+    features: [
+      "Route Optimization",
+      "Inventory Tracking",
+      "Supplier Management",
+      "Real-time Visibility",
+    ],
+    color: "from-orange-500 to-amber-500",
+  },
+  {
+    number: "12",
+    title: "Contractor Estimating Software",
+    description:
+      "Purpose-built software for contractors to generate accurate estimates, manage bids, and track project costs.",
+    features: ["Cost Estimation", "Bid Management", "Material Takeoffs", "Proposal Generation"],
+    color: "from-amber-500 to-yellow-500",
+  },
+  {
+    number: "13",
+    title: "Healthcare & Dental Management",
+    description:
+      "HIPAA-compliant practice management software for medical and dental offices. Scheduling, EHR, and patient communication.",
+    features: [
+      "Patient Scheduling",
+      "EHR/EMR Integration",
+      "HIPAA Compliance",
+      "Telehealth Features",
+    ],
+    color: "from-blue-400 to-indigo-500",
+  },
+  {
+    number: "14",
+    title: "Customer Portal Development",
+    description:
+      "Self-service portals for your customers to manage accounts, view orders, and access support. Enhance customer satisfaction and reduce support load.",
+    features: [
+      "Self-service Dashboards",
+      "Account Management",
+      "Secure Login",
+      "Ticket Submission",
+    ],
+    color: "from-indigo-500 to-violet-500",
+  },
+  {
+    number: "15",
+    title: "Inventory Management Systems",
+    description:
+      "Real-time inventory tracking and management systems. Prevent stockouts, manage warehouses, and automate reordering.",
+    features: ["Barcode Scanning", "Multi-location Support", "Stock Alerts", "Order Fulfillment"],
+    color: "from-violet-500 to-purple-500",
+  },
+  {
+    number: "16",
+    title: "Legacy System Modernization",
+    description:
+      "Upgrade and migrate outdated software to modern technologies. Improve performance, security, and maintainability without losing data.",
+    features: ["Cloud Migration", "Code Refactoring", "UI/UX Modernization", "Database Migration"],
+    color: "from-purple-500 to-fuchsia-500",
+  },
+  {
+    number: "17",
+    title: "Cloud Migration & DevOps",
+    description:
+      "Move your infrastructure to the cloud and automate your deployment pipelines. Scalable, secure, and cost-effective cloud solutions.",
+    features: ["AWS/Azure/GCP", "CI/CD Pipelines", "Infrastructure as Code", "High Availability"],
+    color: "from-fuchsia-500 to-pink-600",
+  },
+  {
+    number: "18",
+    title: "API Integration & Development",
+    description:
+      "Connect your disparate systems with custom API development and integration. Ensure seamless data flow between all your business tools.",
+    features: [
+      "REST & GraphQL APIs",
+      "Third-party Integrations",
+      "API Gateways",
+      "Data Synchronization",
+    ],
+    color: "from-pink-600 to-rose-600",
+  },
+  {
+    number: "19",
+    title: "Learning Management Systems (LMS)",
+    description:
+      "Custom platforms for employee training or educational courses. Deliver content, track progress, and certify learners.",
+    features: ["Course Management", "Progress Tracking", "Quizzes & Assessments", "Video Hosting"],
+    color: "from-rose-600 to-red-600",
+  },
+  {
+    number: "20",
+    title: "Project Management Solutions",
+    description:
+      "Custom project management tools tailored to your specific workflow. Track tasks, collaborate with teams, and meet deadlines.",
+    features: ["Task Boards", "Resource Allocation", "Time Tracking", "Collaboration Tools"],
+    color: "from-red-600 to-orange-600",
+  },
 ];
 
 export default function ServicesSection() {

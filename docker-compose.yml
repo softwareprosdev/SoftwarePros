@@ -30,17 +30,20 @@ services:
       - PORT=3000
       - HOSTNAME=0.0.0.0
 
-      # SMTP Email configuration - aquareefdirect.com (Required)
-      - SMTP_HOST=${SMTP_HOST:-aquareefdirect.com}
-      - SMTP_PORT=${SMTP_PORT:-465}
-      - SMTP_USER=${SMTP_USER:-admin@aquareefdirect.com}
-      - SMTP_PASS=${SMTP_PASS}
-      - SMTP_SECURE=${SMTP_SECURE:-true}
-      - CONTACT_EMAIL=${CONTACT_EMAIL:-admin@aquareefdirect.com}
+      # Email Configuration (Resend - Required)
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - CONTACT_EMAIL=${CONTACT_EMAIL:-info@softwarepros.org}
       - CONTACT_FROM_EMAIL=${CONTACT_FROM_EMAIL:-noreply@softwarepros.org}
 
+      # SMTP Configuration (Optional - only if not using Resend)
+      # - SMTP_HOST=${SMTP_HOST}
+      # - SMTP_PORT=${SMTP_PORT}
+      # - SMTP_USER=${SMTP_USER}
+      # - SMTP_PASS=${SMTP_PASS}
+      # - SMTP_SECURE=${SMTP_SECURE}
+
       # Database (Optional - remove if not using Prisma)
-      # - DATABASE_URL=${DATABASE_URL}
+       - DATABASE_URL=${DATABASE_URL}
 
       # Redis cache (Optional - remove if not using rate limiting)
       - REDIS_URL=${REDIS_URL:-redis://redis:6379}

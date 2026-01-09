@@ -121,17 +121,13 @@ export const emailTemplates: Record<string, EmailTemplate> = {
                 <li><strong>Quality Assurance:</strong> Testing and quality control</li>
             </ul>
 
-            <p><strong>Need Help?</strong> Reply to this email or contact us at <a href="mailto:support@softwarepros.org">support@softwarepros.org</a></p>
+            <p><strong>Need Help?</strong> Reply to this email or contact us at <a href="mailto:support@email.softwarepros.org">support@email.softwarepros.org</a></p>
 
             <p>We're excited to bring your vision to life!</p>
 
-            <p>Best regards,<br>
-            The SoftwarePros Team</p>
-        </div>
-
         <div class="footer">
             <p>SoftwarePros | Professional Software Development Services</p>
-            <p>🌐 <a href="https://www.softwarepros.org">www.softwarepros.org</a> | 📧 <a href="mailto:hello@softwarepros.org">hello@softwarepros.org</a></p>
+            <p>🌐 <a href="https://www.softwarepros.org">www.softwarepros.org</a> | 📧 <a href="mailto:hello@email.softwarepros.org">hello@email.softwarepros.org</a></p>
         </div>
     </div>
 </body>
@@ -578,12 +574,12 @@ export const emailTemplates: Record<string, EmailTemplate> = {
 
             <hr>
 
-            <p><small><strong>Need Support?</strong> Contact us at <a href="mailto:support@softwarepros.org">support@softwarepros.org</a> or reply to this email.</small></p>
+            <p><small><strong>Need Support?</strong> Contact us at <a href="mailto:support@email.softwarepros.org">support@email.softwarepros.org</a> or reply to this email.</small></p>
         </div>
 
         <div class="footer">
             <p>SoftwarePros | Professional Software Development Services</p>
-            <p>🌐 <a href="https://www.softwarepros.org">www.softwarepros.org</a> | 📧 <a href="mailto:hello@softwarepros.org">hello@softwarepros.org</a></p>
+            <p>🌐 <a href="https://www.softwarepros.org">www.softwarepros.org</a> | 📧 <a href="mailto:hello@email.softwarepros.org">hello@email.softwarepros.org</a></p>
         </div>
     </div>
 </body>
@@ -669,7 +665,7 @@ export class EmailAutomationService {
       // Create a minimal contact data object for the email
       const emailData = {
         name: "Email Automation System",
-        email: "automation@softwarepros.org",
+        email: "automation@email.softwarepros.org",
         phone: "",
         company: "SoftwarePros",
         serviceType: "Email Automation",
@@ -713,7 +709,7 @@ export class EmailAutomationService {
           projectManager: "Sarah Johnson",
           leadDeveloper: "Mike Chen",
           designer: "Alex Rodriguez",
-          projectManagerEmail: "sarah@softwarepros.org",
+          projectManagerEmail: "sarah@email.softwarepros.org",
           projectManagerPhone: "+1 (555) 123-4567",
         });
         break;
@@ -751,7 +747,7 @@ export class EmailAutomationService {
         additionalData.nextStepsDescription || "Continuing with next phase of development.",
       nextMilestone: additionalData.nextMilestone,
       projectManager: "Sarah Johnson",
-      projectManagerEmail: "sarah@softwarepros.org",
+      projectManagerEmail: "sarah@email.softwarepros.org",
     });
   }
 
@@ -766,7 +762,7 @@ export class EmailAutomationService {
         : new Date().toLocaleDateString(),
       feedbackDeadline: "3 business days",
       projectManager: "Sarah Johnson",
-      projectManagerEmail: "sarah@softwarepros.org",
+      projectManagerEmail: "sarah@email.softwarepros.org",
       projectManagerPhone: "+1 (555) 123-4567",
     });
   }

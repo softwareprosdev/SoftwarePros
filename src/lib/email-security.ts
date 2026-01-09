@@ -53,7 +53,7 @@ export const DEFAULT_EMAIL_SECURITY_CONFIG: EmailSecurityConfig = {
 
   spf: {
     enabled: true,
-    allowedDomains: ["softwarepros.org", "aquareefdirect.com"],
+    allowedDomains: ["softwarepros.org", "email.softwarepros.org", "mail.softwarepros.org"],
     allowedIPs: [], // Add specific IPs if needed
   },
 
@@ -172,7 +172,7 @@ export function generateSecurityHeaders(clientIP?: string): Record<string, strin
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "DENY",
     "X-XSS-Protection": "1; mode=block",
-    "X-Report-Abuse": "Report abuse to: security@softwarepros.org",
+    "X-Report-Abuse": "Report abuse to: security@email.softwarepros.org",
   };
 
   if (clientIP) {

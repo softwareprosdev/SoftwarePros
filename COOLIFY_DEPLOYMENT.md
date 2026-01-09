@@ -54,20 +54,18 @@ REDIS_URL=rediss://default:oARAhgLyix2CaEY05YAOnXBwpVLSUEp6T7TRrUL4IOSQrEQB8C1g0
 NEXTAUTH_SECRET=your-secure-random-string
 NEXTAUTH_URL=https://yourdomain.com
 
-# Email Configuration (choose one)
+# Email Configuration (Resend - Required)
+RESEND_API_KEY=re_your_resend_api_key_here
+CONTACT_FROM_EMAIL=noreply@softwarepros.org
+CONTACT_EMAIL=info@softwarepros.org
 
-# MailerSend (Recommended)
-MAILERSEND_API_KEY=your-mailersend-api-key
-MAILERSEND_ADMIN_EMAIL=admin@yourdomain.com
-CONTACT_FROM_EMAIL=noreply@yourdomain.com
-
-# SMTP Configuration
-SMTP_HOST=aquareefdirect.com
-SMTP_PORT=465
-SMTP_USER=admin@aquareefdirect.com
-SMTP_PASS=your-smtp-password
-SMTP_SECURE=true
-CONTACT_FROM_EMAIL=noreply@yourdomain.com
+# SMTP Configuration (Optional/Legacy)
+# Only configure if NOT using Resend
+# SMTP_HOST=mail.softwarepros.org
+# SMTP_PORT=465
+# SMTP_USER=info@softwarepros.org
+# SMTP_PASS=your-smtp-password
+# SMTP_SECURE=true
 
 # Security
 SESSION_SECRET=your-session-secret

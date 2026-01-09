@@ -6,12 +6,12 @@ const footerLinks = {
   services: [
     { name: "Web Development", href: "/services/web-development" },
     { name: "Mobile Apps", href: "/services/mobile-apps" },
-    { name: "Enterprise Solutions", href: "/services/enterprise" },
-    { name: "HIPAA Compliant Software", href: "/services/hipaa-compliant-software" },
-    { name: "Healthcare Practice Management", href: "/services/healthcare-practice-management" },
-    { name: "Security Solutions", href: "/services/security" },
-    { name: "AI & Machine Learning", href: "/services/ai-machine-learning" },
-    { name: "Tech Consulting", href: "/services/consulting" },
+    { name: "Custom Admin Panels", href: "/services/enterprise" },
+    { name: "Field Service Management", href: "/business-automation" },
+    { name: "Dental Office Admin", href: "/contact" },
+    { name: "Real Estate Tech", href: "/real-estate-software" },
+    { name: "AI & Automation", href: "/ai-business-tools" },
+    { name: "SaaS Development", href: "/saas-development" },
   ],
   company: [
     { name: "About Us", href: "/about" },
@@ -106,10 +106,10 @@ export default function Footer() {
                     />
                   </svg>
                   <a
-                    href="mailto:info@softwarepros.org"
+                    href="mailto:info@email.softwarepros.org"
                     className="text-gray-400 text-sm hover:text-purple-400 transition-colors duration-300"
                   >
-                    info@softwarepros.org
+                    info@email.softwarepros.org
                   </a>
                 </div>
                 <div className="flex items-center gap-3">

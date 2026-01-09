@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
     // Email validation data using the actual SMTP domain
     const validationData = {
       name: "Email Validation User",
-      email: "admin@aquareefdirect.com",
+      email: "info@softwarepros.org",
       phone: "555-0123",
       company: "SoftwarePros Support",
       serviceType: "Email Configuration Check",

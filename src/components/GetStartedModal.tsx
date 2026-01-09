@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { Business, Email, Phone, Send } from "@mui/icons-material";
 import {
+  Alert,
   Box,
   Button,
   Card,
@@ -9,30 +10,29 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Select,
+  Modal,
+  ModalClose,
+  ModalDialog,
   Option,
+  Select,
+  Sheet,
   Textarea,
   Typography,
-  Alert,
-  Sheet,
-  Modal,
-  ModalDialog,
-  ModalClose,
 } from "@mui/joy";
-import { Email, Phone, Send, Business } from "@mui/icons-material";
+import { useState } from "react";
 
 // Simplified service types for quick start
 const quickStartServices = [
-  "Financial Services Software",
-  "Real Estate Software",
-  "AI & Machine Learning",
-  "Custom Web Applications",
-  "Mobile App Development",
-  "Enterprise Solutions",
-  "Blockchain & Crypto",
-  "Security Solutions",
-  "Technology Consulting",
-  "Other Custom Solution",
+  "Custom Admin Panels",
+  "AI & Automation Solutions",
+  "Dental Office Management",
+  "Field Service Management",
+  "Real Estate Property Tech",
+  "SaaS Product Development",
+  "E-commerce Marketplaces",
+  "Construction Management",
+  "Financial / Fintech Tools",
+  "Mobile Field Applications",
 ];
 
 const budgetRanges = [
@@ -107,7 +107,7 @@ export default function GetStartedModal({ open, onClose }: { open: boolean; onCl
         consent: true,
       };
 
-      let response;
+      let response: Response;
 
       if (showCreateAccount) {
         // Create account first, then send contact email
@@ -414,10 +414,10 @@ export default function GetStartedModal({ open, onClose }: { open: boolean; onCl
               </a>{" "}
               or email{" "}
               <a
-                href="mailto:info@softwarepros.org"
+                href="mailto:info@email.softwarepros.org"
                 style={{ color: "#0066CC", textDecoration: "none" }}
               >
-                info@softwarepros.org
+                info@email.softwarepros.org
               </a>
             </Typography>
           </Box>

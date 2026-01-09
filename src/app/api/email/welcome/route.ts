@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
 import { generateWelcomeEmail } from "@/lib/email-templates/welcome-email";
+import { type NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 export const runtime = "nodejs";
@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
 
     // Send welcome email
     const result = await resend.emails.send({
-      from: process.env.CONTACT_FROM_EMAIL || "noreply@softwarepros.org",
+      from: process.env.CONTACT_FROM_EMAIL || "noreply@email.softwarepros.org",
       to: [payload.contactEmail],
       subject: `Welcome to SoftwarePros - Let's Build Something Amazing! 🚀`,
       html,

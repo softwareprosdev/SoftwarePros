@@ -38,7 +38,7 @@ import {
 import { signIn } from "next-auth/react";
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 

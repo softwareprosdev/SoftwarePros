@@ -63,7 +63,8 @@ const services: ServiceFeature[] = [
   {
     icon: People,
     title: "Patient Portals",
-    description: "Secure portals empowering patients to manage their health journey and communicate with providers.",
+    description:
+      "Secure portals empowering patients to manage their health journey and communicate with providers.",
     benefits: [
       "Secure messaging",
       "Prescription refill requests",
@@ -97,7 +98,8 @@ export default function HealthcarePracticeManagementPage(): JSX.Element {
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Healthcare Practice Management</h1>
           <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-            Modernize your medical practice with custom software solutions designed to improve patient care, streamline operations, and ensure compliance.
+            Modernize your medical practice with custom software solutions designed to improve
+            patient care, streamline operations, and ensure compliance.
           </p>
           <Link
             href="/contact"
@@ -111,7 +113,9 @@ export default function HealthcarePracticeManagementPage(): JSX.Element {
       {/* Services Grid */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Comprehensive Solutions</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            Comprehensive Solutions
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service) => {
               const IconComponent = service.icon;
@@ -127,7 +131,9 @@ export default function HealthcarePracticeManagementPage(): JSX.Element {
                   <p className="text-gray-600 mb-6 text-lg">{service.description}</p>
 
                   <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Key Benefits:</h4>
+                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">
+                      Key Benefits:
+                    </h4>
                     <ul className="space-y-2">
                       {service.benefits.map((benefit) => (
                         <li key={benefit} className="flex items-center text-gray-700">
@@ -152,17 +158,24 @@ export default function HealthcarePracticeManagementPage(): JSX.Element {
             <div className="p-6">
               <Security className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">HIPAA Compliance</h3>
-              <p className="text-gray-600">Built-in security and compliance measures to protect sensitive patient data.</p>
+              <p className="text-gray-600">
+                Built-in security and compliance measures to protect sensitive patient data.
+              </p>
             </div>
             <div className="p-6">
               <AccessTime className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Efficiency First</h3>
-              <p className="text-gray-600">Workflows optimized to reduce administrative burden and increase face-to-face time.</p>
+              <p className="text-gray-600">
+                Workflows optimized to reduce administrative burden and increase face-to-face time.
+              </p>
             </div>
             <div className="p-6">
               <Medication className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Scalable Solutions</h3>
-              <p className="text-gray-600">Architecture that grows with your practice, from single clinics to hospital networks.</p>
+              <p className="text-gray-600">
+                Architecture that grows with your practice, from single clinics to hospital
+                networks.
+              </p>
             </div>
           </div>
         </div>

@@ -222,14 +222,14 @@ export async function sendContactEmail(data: ContactEmailData, clientIP?: string
     const subjectBase = sanitizedData.subject?.trim() || "New Contact Message";
     const subject = `${subjectBase} - ${sanitizedData.name} (${sanitizedData.serviceType || "General"})`;
 
-    const recipientEmail = process.env.CONTACT_EMAIL || "info@softwarepros.org";
+    const recipientEmail = process.env.CONTACT_EMAIL || "info@email.softwarepros.org";
 
     // Support multiple recipients (comma-separated)
     const recipients = recipientEmail
       .split(",")
       .map((email) => email.trim())
       .filter((email) => email);
-    const fromEmail = process.env.CONTACT_FROM_EMAIL || "noreply@softwarepros.org";
+    const fromEmail = process.env.CONTACT_FROM_EMAIL || "noreply@mail.softwarepros.org";
 
     // Step 6: Send email using Resend
     console.log("Sending email via Resend...");

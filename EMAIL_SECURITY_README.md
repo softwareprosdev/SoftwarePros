@@ -51,15 +51,15 @@ MAILERSEND_API_KEY=your_api_key
 MAILERSEND_ADMIN_EMAIL=admin@yourdomain.com
 
 # SMTP Configuration
-SMTP_HOST=aquareefdirect.com
+SMTP_HOST=mail.softwarepros.org
 SMTP_PORT=465
 SMTP_USER=your_username
 SMTP_PASS=your_password
 
-# aquareefdirect.com SMTP Configuration
-SMTP_HOST=aquareefdirect.com
+# softwarepros.org SMTP Configuration
+SMTP_HOST=mail.softwarepros.org
 SMTP_PORT=465
-SMTP_USER=admin@aquareefdirect.com
+SMTP_USER=info@softwarepros.org
 SMTP_PASS=your_password
 SMTP_SECURE=true
 

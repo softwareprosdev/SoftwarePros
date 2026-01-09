@@ -63,10 +63,10 @@ export default function TermsPage() {
             <p className="text-gray-300">
               For questions about these Terms of Service, contact us at{" "}
               <a
-                href="mailto:info@softwarepros.org"
+                href="mailto:info@email.softwarepros.org"
                 className="text-purple-400 hover:text-purple-300"
               >
-                info@softwarepros.org
+                info@email.softwarepros.org
               </a>
             </p>
           </section>
